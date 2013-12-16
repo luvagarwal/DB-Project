@@ -1,3 +1,3 @@
 DB-Project
 ==========
- Pharmacy website development
+Pharmacy website development
