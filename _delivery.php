@@ -5,8 +5,9 @@ if(isset($_POST['industry_id'])){
   {
     die('Could not connect: ' . mysql_error());
   }
-  $query1 = "insert into DELIVERY(industry_id, product_name, total_items, total_paid)
-            values(".$_POST['industry_id'].", '".$_POST['name']."', ".$_POST['num'].", ".$_POST['price'].");";
+  session_start();
+  $query1 = "insert into DELIVERY(industry_id, product_name, total_items, total_paid, store_id)
+            values(".$_POST['industry_id'].", '".$_POST['name']."', ".$_POST['num'].", ".$_POST['price'].",".$_SESSION['store'].");";
   $query2 = "update PRODUCT set no_of_items=no_of_items+".$_POST['num']." where product_name='".$_POST['name']."' ";
   $db->query($query1);
   $db->query($query2);

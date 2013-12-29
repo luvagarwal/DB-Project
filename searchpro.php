@@ -3,7 +3,7 @@ $conn = mysql_connect("localhost","root","123123") or die(mysql_error());
 mysql_select_db("APOLLO",$conn) or die(mysql_error());
 
 if(empty($_GET)){
-	$query = "Select * from PRODUCT";
+	$query = "Select * from PRODUCT where store_id='".$_SESSION['store']."'";
 	$results = mysql_query($query);
 	if(!$results)
 	{
@@ -27,7 +27,9 @@ if(empty($_GET)){
 }
 else{
 	$name = $_GET['name'];
-	$query = "select * from PRODUCT where product_name LIKE '%$name%';";
+	session_start();
+	$store = $_SESSION['store'];
+	$query = "select * from PRODUCT where product_name LIKE '%$name%' and store_id=".$store;
 	$results = mysql_query($query,$conn);
 	if(!$results)
 	{

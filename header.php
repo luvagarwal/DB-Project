@@ -12,11 +12,13 @@
             </button>
             <a class="navbar-brand" href="#"><?php session_start(); echo "STORE: ".$_SESSION['store_name']?></a>
         </div>
+        <a class="navbar-brand"  href='logout.php'>Logout</a>
         <!-- Top Menu Items -->
         <ul class="nav navbar-right top-nav">
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> 
                 <?php
+
                     if($_SESSION['type']=='a'){
                         echo "Welcome Admin ";
                     }
@@ -27,6 +29,7 @@
                         echo "Welcome ";
                     }
                     echo $_SESSION['username'];
+
 
                 ?>
                  <b class="caret"></b></a>

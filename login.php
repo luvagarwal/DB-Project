@@ -156,13 +156,12 @@ Apollo takes pride in delivering an exceptionally safe, secure, and enjoyable sh
       $db = mysqli_connect("localhost", "root", "123123", "APOLLO");
      $query = "INSERT INTO FEEDBACK (customer_name,feedback_body) values ('$name','$feedback')";
      $result = $db -> query($query);
-     echo "<h1>$result</h1>";
+     echo "<h3>Success</h3>";
     }
     else
     {
       echo "Please enter valid data";
     }
-    mysql_close($db);
   }
 
   ?>  

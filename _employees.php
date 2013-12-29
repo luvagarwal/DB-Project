@@ -251,7 +251,9 @@ else
 		echo "This is not an Image";
 	else
 	{
-		if(!$insert = mysql_query("INSERT INTO EMPLOYEE VALUES ('','$user_name','$first_name','$last_name','{$imageProperties['mime']}','{$imgData}','$date','$sex','$date_joining','$address','$salary','$emp_type','$phone_no','$qualify','$password',$store)"))
+		if(!$insert = mysql_query("INSERT INTO EMPLOYEE 
+      VALUES ('','$user_name','$first_name','$last_name','{$imageProperties['mime']}','{$imgData}','$date',
+              '$sex','$date_joining','$address','$salary','$emp_type','$phone_no','$qualify','$password',$store)"))
 		{
 			echo "Problem entering the data";
 		}

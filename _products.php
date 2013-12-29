@@ -69,8 +69,9 @@ $conn = mysql_connect("localhost","root","123123") or die(mysql_error());
 mysql_select_db("APOLLO",$conn) or die(mysql_error());
 if(isset($_POST['submit']))
 {	
+    session_start();
 	$product_name = $_POST['product_name'];
-	$store_id = 1;
+	$store_id = $_SESSION['store'];
 	$no_of_items = $_POST['no_of_items'];
 	$manufacture_date = $_POST['manufacture_date'];
 	$expire_date= $_POST['expire_date'];

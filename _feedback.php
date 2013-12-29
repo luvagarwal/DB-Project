@@ -1,13 +1,6 @@
-<br>
-<br>
-<br>
-<hr>
+<br><br><br><hr>
 <h2 style="color:#095d58;text-align:center"> Feedbacks by the Customers </h2>
-<hr>
-<br>
-<br>
-<br>
-
+<hr><br><br><br>
 <?php
 // Required variables for the connection
 $dbhost = "localhost";

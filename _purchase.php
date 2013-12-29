@@ -97,6 +97,7 @@ $(document).ready(function clickbutton(){
 
 
 <?php
+session_start();
 $conn = mysql_connect("localhost","root","123123") or die(mysql_error());
 mysql_select_db("APOLLO",$conn) or die(mysql_error());
  
@@ -111,8 +112,9 @@ if(isset($_POST['submit']))
 	$total_items = $_POST['total_items'];
 	$total_price = $_POST['total_price'];
 	$discount = $_POST['discount'];
+  $store = $_SESSION['store'];
 
-		if(!$insert = mysql_query("INSERT INTO PURCHASE VALUES ($purchase_id,$customer_id,'$date','$payment_method','$product_name',$total_items,$total_price,$discount)"))
+		if(!$insert = mysql_query("INSERT INTO PURCHASE VALUES ($purchase_id,$customer_id,'$date','$payment_method','$product_name',$total_items,$total_price,$discount,$store)"))
 		{
 			echo "Problem entering the data";
 
