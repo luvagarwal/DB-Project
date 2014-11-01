@@ -106,7 +106,7 @@ CREATE TABLE FEEDBACK(
 	feedback_id INT NOT NULL AUTO_INCREMENT,
 	customer_id INT,
 	time_of_feedback TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-	feedback_body CHAR,
+	feedback_body CHAR(100),
 	PRIMARY KEY(feedback_id),
 	FOREIGN KEY (customer_id) REFERENCES CUSTOMER(customer_id)
 );
