@@ -84,30 +84,30 @@ Apollo takes pride in delivering an exceptionally safe, secure, and enjoyable sh
 </div>
 </div>
 </div>
-
-
-<br>
-      <br>
-      <br>
-      <br>
-      <br>
-
-
-        <form role="form">
-          <div class="form-group">
-            <h4 style="color:#095d58">Full Name</h4>
-           <input type="text"class="form-control" id="customer-name" style="width:50em">
-          </div>
-          <div class="form-group">
-            <h4 style="color:#095d58">Your FeedBack</h4>
-            <textarea type="text"  rows="6"  cols="50" class="form-control" id="feedback" style="width:50em "></textarea> 
-          </div>
-        
-          <button type="submit" class="btn btn-default">Submit</button>
-        </form>
-      </div>
+<br><br><br><br><br>
+  <form method="get" id="form" action="/login.php#form">
+    <div class="form-group">
+      <h4 style="color:#095d58">Full Name</h4>
+     <input type="text"class="form-control" name="name" id="customer-name" style="width:50em">
     </div>
+    <div class="form-group">
+      <h4 style="color:#095d58">Your FeedBack</h4>
+      <textarea type="text"  rows="6"  cols="50" class="form-control" name="feedback" id="feedback" style="width:50em "></textarea> 
     </div>
+    <button type="submit" class="btn btn-default">Submit</button>
+  </form>
+  <?php
+  if(!empty($_GET)){
+    $db = mysqli_connect("localhost", "root", "luvuma", "APOLLO");
+    if(!$db){
+      die("Error while connecting to database");
+    }
+    echo "<h1>success</h1>";
+  }
+  ?>
+  </div>
+</div>
+</div>
 
 
     <!-- Bootstrap core JavaScript
