@@ -103,10 +103,10 @@ CREATE TABLE DELIVERY(
 );
 
 CREATE TABLE FEEDBACK(
-	feedback_id INT NOT NULL,
+	feedback_id INT NOT NULL AUTO_INCREMENT,
 	customer_id INT,
-	date_of_feedback DATE,
-	feedback_body CHAR,
+	time_of_feedback TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+	feedback_body CHAR(100),
 	PRIMARY KEY(feedback_id),
 	FOREIGN KEY (customer_id) REFERENCES CUSTOMER(customer_id)
 );
@@ -116,7 +116,5 @@ CREATE TABLE REFUND(
 	customer_id INT,
 	purchase_id INT,
 	refund_price INT,
-	PRIMARY KEY (refund_id),
-	FOREIGN KEY (customer_id) REFERENCES CUSTOMER(customer_id),
-	FOREIGN KEY (purchase_id) REFERENCES PURCHASE(purchase_id)
+	PRIMARY KEY (refund_id)
 );
