@@ -68,11 +68,12 @@ CREATE TABLE EMPLOYEE(
 
 CREATE TABLE PRODUCT(
 	product_name CHAR(30) NOT NULL,
-	industry_id INT,
 	store_id INT,
+	no_of_items INT DEFAULT 0,
 	manufacture_date DATE,
 	expire_date DATE,
 	procurrent_cost INT,
+	image BLOB,
 	PRIMARY KEY(product_name),
 	FOREIGN KEY (industry_id) REFERENCES INDUSTRY(industry_id),
 	FOREIGN KEY (store_id) REFERENCES STORE(store_id)
@@ -96,7 +97,7 @@ CREATE TABLE DELIVERY(
 	industry_id INT NOT NULL,
 	product_name CHAR(30) NOT NULL,
 	total_items INT,
-	date_of_refund DATE,
+	time_of_delivery TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 	total_paid INT,
 	FOREIGN KEY (industry_id) REFERENCES INDUSTRY(industry_id),
 	FOREIGN KEY (product_name) REFERENCES PRODUCT(product_name)

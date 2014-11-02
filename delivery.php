@@ -12,7 +12,7 @@ if(!isset($_SESSION['username'])){
     </head>
     <body>
         <?php include 'header.php';?>
-        <?php include '_delievery.php';?>
+        <?php include '_delivery.php';?>
         <?php
             include 'footer.php';
             include 'includesjs.php';
