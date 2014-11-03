@@ -118,3 +118,9 @@ CREATE TABLE REFUND(
 	refund_price INT,
 	PRIMARY KEY (refund_id)
 );
+
+CREATE TABLE LOGIN(
+    username CHAR(20) NOT NULL,
+    password CHAR(32),
+    type CHAR(1)
+);

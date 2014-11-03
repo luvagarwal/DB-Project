@@ -2,7 +2,7 @@
 <?php
 session_start();
 if(isset($_SESSION['username'])){
-    header('Location: home.php');
+    header('Location: purchase.php');
 }
 ?>
 <html lang="en"><head>
@@ -46,13 +46,29 @@ if(isset($_SESSION['username'])){
           </button>
           <a class="navbar-brand" href="#">Apollo Pharmacy</a>
         </div>
+        <?php
+        if(!empty($_POST)){
+          $db = mysqli_connect('localhost', 'root', 'luvuma', 'APOLLO');
+          $username = $_POST['username'];
+          $password = md5($_POST['password']);
+          $query = "SELECT username, password, type from LOGIN where username='$username' and password='$password';";
+          $result = $db -> query($query);
+          if($result->num_rows > 0){
+            session_start();
+            $_SESSION['username'] = username;
+            $type = $result->fetch_assoc()['type'];
+            $_SESSION['type'] = $type;
+            header('Location: purchase.php');
+          }
+        }
+        ?>
         <div id="navbar" class="navbar-collapse collapse">
-          <form class="navbar-form navbar-right" role="form">
+          <form class="navbar-form navbar-right" role="form" method="POST">
             <div class="form-group">
-              <input placeholder="Email" class="form-control" type="text">
+              <input placeholder="Email" name="username" class="form-control" type="text">
             </div>
             <div class="form-group">
-              <input placeholder="Password" class="form-control" type="password">
+              <input placeholder="Password" name="password" class="form-control" type="password">
             </div>
             <button type="submit" class="btn btn-success">Sign in</button>
           </form>
@@ -97,13 +113,14 @@ Apollo takes pride in delivering an exceptionally safe, secure, and enjoyable sh
     <button type="submit" class="btn btn-default">Submit</button>
   </form>
   <?php
-  if(!empty($_GET)){
+/*  if(!empty($_GET)){
     $db = mysqli_connect("localhost", "root", "luvuma", "APOLLO");
     if(!$db){
       die("Error while connecting to database");
     }
+    $query = "INSERT INTO FEEDBACK values"
     echo "<h1>success</h1>";
-  }
+  }*/
   ?>
   </div>
 </div>

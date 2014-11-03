@@ -12,3 +12,5 @@ VALUES('dhr', 'umil', '291073979197', 'fhsfhskdfhkds', 'm');
 
 INSERT INTO FEEDBACK(customer_id, feedback_body)
 VALUES(1, 'body of feedback');
+
+INSERT INTO LOGIN VALUES('lite', MD5('123123'), 'a');
