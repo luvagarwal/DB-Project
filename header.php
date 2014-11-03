@@ -10,7 +10,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="index.html">Appolo</a>
+            <a class="navbar-brand" href="index.html">Apollo Pharmacy</a>
         </div>
         <!-- Top Menu Items -->
         <ul class="nav navbar-right top-nav">
@@ -117,25 +117,25 @@
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav side-nav">
                 <li class="active">
-                    <a href="index.html"><i class="fa fa-fw"></i> Purchases</a>
+                    <a href="purchases.php"><i class="fa fa-fw"></i> Purchases</a>
                 </li>
                 <li>
-                    <a href="charts.html"><i class="fa fa-fw"></i> Products</a>
+                    <a href="products.php"><i class="fa fa-fw"></i> Products</a>
                 </li>
                 <li>
-                    <a href="tables.html"><i class="fa fa-fw"></i> Deliever Product</a>
+                    <a href="delivery.php"><i class="fa fa-fw"></i> Deliever Product</a>
                 </li>
                 <li>
-                    <a href="forms.html"><i class="fa fa-fw"></i> Feedbacks</a>
+                    <a href="feedback.php"><i class="fa fa-fw"></i> Feedbacks</a>
                 </li>
                 <li>
-                    <a href="bootstrap-elements.html"><i class="fa fa-fw"></i> Employees</a>
+                    <a href="employees.php"><i class="fa fa-fw"></i> Employees</a>
                 </li>
                 <li>
-                    <a href="bootstrap-grid.html"><i class="fa fa-fw"></i> Customers</a>
+                    <a href="customers.php"><i class="fa fa-fw"></i> Customers</a>
                 </li>
                 <li>
-                    <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw"></i> Dropdown <i class="fa fa-fw fa-caret-down"></i></a>
+                    <a href="" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw"></i> Dropdown <i class="fa fa-fw fa-caret-down"></i></a>
                     <ul id="demo" class="collapse">
                         <li>
                             <a href="#">Dropdown Item</a>
@@ -146,7 +146,7 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="blank-page.html"><i class="fa fa-fw"></i> Doctors</a>
+                    <a href="doctors.php"><i class="fa fa-fw"></i> Doctors</a>
                 </li>
             </ul>
         </div>

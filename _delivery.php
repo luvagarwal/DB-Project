@@ -16,7 +16,7 @@
       <input type="text"  rows="6"  cols="50" class="form-control" name="price" id="price" style="width:50em "></textarea> 
     </div>
     <div class="form-group">
-      <h4 style="color:#095d58"></h4>
+      <h4 style="color:#095d58">s</h4>
       <input type="text"  rows="6"  cols="50" class="form-control" name="price" id="price" style="width:50em "></textarea> 
     </div>
     <button type="submit" class="btn btn-default">Submit</button>

@@ -50,20 +50,20 @@ CREATE TABLE STORE(
 );
 
 CREATE TABLE EMPLOYEE(
-	employee_id INT NOT NULL AUTO_INCREMENT,
+	employee_id INT NOT NULL AUTO_INCREMENT, 
 	f_name CHAR(15),
 	l_name CHAR(15),
+	image blob,
 	dob DATE,
 	sex CHAR(1),
 	date_of_joining DATE,
 	address CHAR(50),
 	salary INT,
-	store_id INT,
 	employee_type CHAR(10),
 	phone_no CHAR(12),
 	qualification CHAR(50),
-	PRIMARY KEY(employee_id),
-	FOREIGN KEY (store_id) REFERENCES STORE(store_id)
+	PRIMARY KEY(employee_id)
+#	FOREIGN KEY (store_id) REFERENCES STORE(store_id)
 );
 
 CREATE TABLE PRODUCT(
@@ -75,7 +75,6 @@ CREATE TABLE PRODUCT(
 	procurrent_cost INT,
 	image BLOB,
 	PRIMARY KEY(product_name),
-	FOREIGN KEY (industry_id) REFERENCES INDUSTRY(industry_id),
 	FOREIGN KEY (store_id) REFERENCES STORE(store_id)
 );
 
