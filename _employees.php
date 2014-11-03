@@ -33,6 +33,10 @@ $(".date-picker").on("change", function () {
 <div id="form" style="width:50em;display:none;background-color:#f0f0f0;margin-left:20em;padding-top: 25px;padding-right: 25px ; padding-bottom: 25px;
     padding-left: 25px;">
 <form method="post" action="" enctype="multipart/form-data">
+<div class="form-group">
+      <h5 style="color:#095d58">User Name:</h5>
+     <input type="text"class="form-control" name="user_name" id="user_name" style="width:30em">
+    </div>
     <div class="form-group">
       <h5 style="color:#095d58">First Name:</h5>
      <input type="text"class="form-control" name="first_name" id="first_name" style="width:30em">
@@ -71,9 +75,11 @@ $(".date-picker").on("change", function () {
       <input type="text"  class="form-control" name="salary" id="salary" style="width:30em "> 
     </div>
 
-    <div class="form-group">
-      <h5 style="color:#095d58">Employee Type:</h5>
-      <input type="text"  class="form-control" name="emp_type" id="emp_type" style="width:30em "> 
+   <div class="form-group">
+      <h5 style="color:#095d58">Sex:</h5>
+      <input type="radio" name="sex" value="m" checked> Manager<br>
+		<input type="radio" name="sex" value="a" > Admin<br>
+		<input type="radio" name="sex" value="e" >Employee<br>
     </div>
 
     <div class="form-group">
@@ -90,6 +96,14 @@ $(".date-picker").on("change", function () {
     <div class="form-group">
       <h5 style="color:#095d58">Photo:</h5>
       <input type="file"  name="image" id="image" > 
+    </div>
+    <div class="form-group">
+      <h5 style="color:#095d58">Password:</h5>
+      <input type="password"  name="password" id="password" > 
+    </div>
+    <div class="form-group">
+      <h5 style="color:#095d58">Confirm Password:</h5>
+      <input type="password"  name="confirm_password" id="confirm_password" > 
     </div>
 
     <button type="submit" class="btn btn-default" name="submit">Submit</button>
@@ -153,6 +167,7 @@ if(!results)
 <hr>
 <table class='table table-hover'>
 <thead style="color:#0087C3;text-align:center;background-color:#f0f0f0">
+<td>User Name</td>
 <td>First Name</td>
 <td>Last Name</td>
 <td>Photo</td>
@@ -172,8 +187,9 @@ if(!results)
 
 while($row = mysql_fetch_array($results))
 {
-	echo "<tr style='text-align:center'><td>".$row['f_name']."</td>";
-	echo "<td>".$row['l_name']."</td>";
+	echo "<tr style='text-align:center'><td>".$row['user_name']."</td>";
+	echo "<td>".$row['first_name']."</td>"
+	echo "<td>".$row['last_name']."</td>";
 	echo "<td><img src='showimages.php?id=".$row['employee_id']."'></td>";
 	echo "<td>".$row['dob']."</td>";
 	echo "<td>".$row['sex']."</td>";

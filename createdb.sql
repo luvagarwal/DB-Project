@@ -51,17 +51,19 @@ CREATE TABLE STORE(
 
 CREATE TABLE EMPLOYEE(
 	employee_id INT NOT NULL AUTO_INCREMENT, 
-	f_name CHAR(15),
-	l_name CHAR(15),
+	user_name CHAR(15),
+	first_name CHAR(15),
+	last_name CHAR(15),
 	image blob,
 	dob DATE,
 	sex CHAR(1),
 	date_of_joining DATE,
 	address CHAR(50),
 	salary INT,
-	employee_type CHAR(10),
+	employee_type CHAR(1),
 	phone_no CHAR(12),
 	qualification CHAR(50),
+	password CHAR(32),
 	PRIMARY KEY(employee_id)
 #	FOREIGN KEY (store_id) REFERENCES STORE(store_id)
 );
