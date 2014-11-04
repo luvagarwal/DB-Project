@@ -64,16 +64,16 @@ $(".date-picker").on("change", function () {
 
     <div class="form-group">
       <h5 style="color:#095d58">First Name:</h5>
-     <input type="text"class="form-control" name="first_name" id="first_name" style="width:30em">
+     <input type="text"class="form-control" name="first_name" id="first_name" style="width:30em" required>
     </div>
     <div class="form-group">
       <h5 style="color:#095d58">Last Name:</h5>
-      <input type="text" class="form-control" name="last_name" id="Last_Name" style="width:30em ">
+      <input type="text" class="form-control" name="last_name" id="Last_Name" style="width:30em " required>
     </div>
    <div class="form-group">
 				<div class='input-group date' id='datetimepicker5'>
 					<h5 style="color:#095d58"> Date of Birth: </h5>
-					<input type='text' class="form-control" data-date-format="YYYY/MM/DD" name="date"/>
+					<input type='text' class="form-control" data-date-format="YYYY/MM/DD" name="date" required>
 					<span class="input-group-addon">
 						<span class="glyphicon glyphicon-calendar"></span>
 					</span>
@@ -86,18 +86,18 @@ $(".date-picker").on("change", function () {
     </div>
     <div class="form-group">
       <h5 style="color:#095d58">Date of Joining:</h5>
-      <input type="text"  class="form-control" name="date_joining" id="date_joining" style="width:30em ">
+      <input type="text"  class="form-control" name="date_joining" id="date_joining" style="width:30em " required>
     </div>
 
     <div class="form-group">
       <h5 style="color:#095d58">Address of Residence:</h5>
-      <textarea type="text"  rows="6"  cols="50" class="form-control" name="address" id="address" style="width:30em "></textarea> 
+      <textarea type="text"  rows="6"  cols="50" class="form-control" name="address" id="address" style="width:30em " required></textarea> 
     </div>
 
 
     <div class="form-group">
       <h5 style="color:#095d58">Salary:</h5>
-      <input type="text"  class="form-control" name="salary" id="salary" style="width:30em "> 
+      <input type="text"  class="form-control" name="salary" id="salary" style="width:30em " required> 
     </div>
 
    <div class="form-group">
@@ -109,18 +109,18 @@ $(".date-picker").on("change", function () {
 
     <div class="form-group">
       <h5 style="color:#095d58">Phone No:</h5>
-      <input type="text"  class="form-control" name="phone_no" id="phone_no" style="width:30em "> 
+      <input type="text"  class="form-control" name="phone_no" id="phone_no" style="width:30em " required> 
     </div>
 
     <div class="form-group">
       <h5 style="color:#095d58">Qualifiations:</h5>
-      <input type="text"  class="form-control" name="qualify" id="qualify" style="width:30em "> 
+      <input type="text"  class="form-control" name="qualify" id="qualify" style="width:30em " required> 
     </div>
 
 
     <div class="form-group">
       <h5 style="color:#095d58">Photo:</h5>
-      <input type="file"  name="image" id="image" > 
+      <input type="file"  name="image" id="image" required> 
     </div>
     <br>
 
@@ -131,15 +131,15 @@ $(".date-picker").on("change", function () {
 
     <div class="form-group">
       <h5 style="color:#095d58">User Name:</h5>
-     <input type="text"class="form-control" name="user_name" id="user_name" style="width:30em">
+     <input type="text"class="form-control" name="user_name" id="user_name" style="width:30em" required>
     </div>
     <div class="form-group">
       <h5 style="color:#095d58">Password:</h5>
-      <input type="password"  name="password" id="password" > 
+      <input type="password"  name="password" id="password" required> 
     </div>
     <div class="form-group">
       <h5 style="color:#095d58">Confirm Password:</h5>
-      <input type="password"  name="confirm_password" id="confirm_password" > 
+      <input type="password"  name="confirm_password" id="confirm_password" required> 
     </div>
 
     <button type="submit" class="btn btn-default" name="submit">Submit</button>

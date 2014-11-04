@@ -26,7 +26,20 @@
       background-color: white;
      }
      </style>
+     <script type="text/javascript">
+      function checkUserType(val){
+          obj=new XMLHttpRequest();
+          obj.onreadystatechange = function(){
+            alert(obj.readyState+obj.status);
+            if(obj.readyState==4 && obj.status==200){
+                document.getElementById('stores').innerHTML=obj.responseText;
+              }
+          }
+          obj.open("GET", "_login.php?name="+val);
+          obj.send();
 
+      }
+     </script>
      <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -66,10 +79,22 @@
         <div id="navbar" class="navbar-collapse collapse"  style="opacity:0.9">
           <form class="navbar-form navbar-right" role="form" method="POST">
             <div class="form-group">
-              <input placeholder="Email" name="username" class="form-control" type="text">
+              <input placeholder="Email" name="username" class="form-control" type="text" onblur="checkUserType(this.value)" required>
             </div>
             <div class="form-group">
               <input placeholder="Password" name="password" class="form-control" type="password">
+            </div>
+            <div class="dropdown form-group"> 
+            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+              Store ID
+              <span class="caret"></span>
+            </button>
+              <ul class="dropdown-menu" id="stores" role="menu" aria-labelledby="dropdownMenu1">
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Action</a></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Another action</a></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Something else here</a></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>
+              </ul>
             </div>
             <button type="submit" class="btn btn-success">Sign in</button>
           </form>
@@ -106,11 +131,11 @@ Apollo takes pride in delivering an exceptionally safe, secure, and enjoyable sh
   <form method="get" id="form" action="">
     <div class="form-group">
       <h4 style="color:#095d58">Full Name</h4>
-     <input type="text"class="form-control" name="name" id="customer-name" style="width:40em">
+     <input type="text"class="form-control" name="name" id="customer-name" style="width:40em" required>
     </div>
     <div class="form-group">
       <h4 style="color:#095d58">Your FeedBack</h4>
-      <textarea type="text"  rows="6"  cols="50" class="form-control" name="feedback" id="feedback" style="width:40em "></textarea> 
+      <textarea type="text"  rows="6"  cols="50" class="form-control" name="feedback" id="feedback" style="width:40em " required></textarea> 
     </div>
     <button name="submit" type="submit" class="btn btn-default">Submit</button>
   </form>
@@ -148,5 +173,4 @@ Apollo takes pride in delivering an exceptionally safe, secure, and enjoyable sh
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="static/js/ie10-viewport-bug-workaround.js"></script>
   
-
 </body></html>
