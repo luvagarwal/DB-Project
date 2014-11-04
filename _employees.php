@@ -41,7 +41,7 @@ $(".date-picker").on("change", function () {
 		obj.onreadystatechange=function(){
 			if(obj.readyState==4 && obj.status==200){
 				resphtml = obj.responseText;
-				
+
 				document.getElementById("details").innerHTML=resphtml;
 			}
 		}
@@ -196,21 +196,7 @@ mysql_close($conn);
 <hr>
 <h2 style="color:#095d58;text-align:center"> Employee's List</h2>
 <hr>
-<table class='table table-hover' border="0" style="margin-left:2em;width:77em;border:1px solid ;box-shadow: 1px 1px 1px 1px #888888">
-<thead style="color:white;text-align:center;background-color:#808080;font-weight:bold;">
-<td>User Name</td>
-<td>First Name</td>
-<td>Last Name</td>
-<td>Date</td>
-<td>Sex</td>
-<td>Date of Joining</td>
-<td>Address</td>
-<td>Salary</td>
-<td>Employee Type</td>
-<td>Phone No</td>
-<td>Qualification</td>
-</thead>
-</table>
+
 <div id="details">
 <?php include "searchemp.php" ?>
 </div>
