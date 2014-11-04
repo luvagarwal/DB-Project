@@ -30,7 +30,8 @@ if(! $query )
   die('Could not enter data: ' . mysql_error());
 }
 ?>
-<table class='table table-hover'><thead style="color:#0087C3;text-align:center"><td>FIRST NAME</td><td>LAST NAME</td><td>PHONE NO</td><td>address</td></thead>
+<table class='table table-hover' border="0" style="margin-left:2em;width:77em;border:1px solid ;box-shadow: 5px 3px 3px 2px #888888">
+<thead style="color:white;text-align:center;background-color:#808080;font-weight:bold;"><td>FIRST NAME</td><td>LAST NAME</td><td>PHONE NO</td><td>address</td></thead>
 <?php
 while($row = mysql_fetch_array($query))
 {

@@ -1,10 +1,5 @@
 <!DOCTYPE html>
-<?php
-session_start();
-if(isset($_SESSION['username'])){
-    header('Location: purchase.php');
-}
-?>
+
 <html lang="en"><head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
@@ -25,8 +20,14 @@ if(isset($_SESSION['username'])){
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
     <script src="static/js/ie-emulation-modes-warning.js"></script>
+     <style>
+     body
+     {
+      background-color: white;
+     }
+     </style>
 
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -46,8 +47,8 @@ if(isset($_SESSION['username'])){
           </button>
           <a class="navbar-brand" href="#">Apollo Pharmacy</a>
         </div>
-        <?php
-        if(!empty($_POST)){
+        <!--<?php
+        /*if(!empty($_POST)){
           $db = mysqli_connect('localhost', 'root', 'luvuma', 'APOLLO');
           $username = $_POST['username'];
           $password = md5($_POST['password']);
@@ -60,9 +61,9 @@ if(isset($_SESSION['username'])){
             $_SESSION['type'] = $type;
             header('Location: purchase.php');
           }
-        }
-        ?>
-        <div id="navbar" class="navbar-collapse collapse">
+        }*/
+        ?>-->
+        <div id="navbar" class="navbar-collapse collapse"  style="opacity:0.9">
           <form class="navbar-form navbar-right" role="form" method="POST">
             <div class="form-group">
               <input placeholder="Email" name="username" class="form-control" type="text">
@@ -77,7 +78,7 @@ if(isset($_SESSION['username'])){
     </nav>
 
     <!-- Main jumbotron for a primary marketing message or call to action -->
-    <div class="jumbotron">
+    <div class="jumbotron" style="background-color:white;">
       <div class="container">
       
         <h3 style="color:#095d58">About Us</h3>
@@ -93,7 +94,7 @@ Our mission at Apollo Pharmacy is a “promise beyond prescriptions”. We make 
       <br>
        
 
-<div class="footertopicon" style="background-color:#ffdc9f;padding:5px;text-align:center;overflow:hidden;color:#0b6365;font-size:15px">
+<div class="footertopicon" style="background-color:#ffdc9f;padding:5px;text-align:center;overflow:hidden;color:#0b6365;font-size:15px;box-shadow:2px 2px 2px #888888">
 <div>
 <div>
 Apollo takes pride in delivering an exceptionally safe, secure, and enjoyable shopping experience  
@@ -101,27 +102,39 @@ Apollo takes pride in delivering an exceptionally safe, secure, and enjoyable sh
 </div>
 </div>
 <br><br><br><br><br>
-  <form method="get" id="form" action="/login.php#form">
+<div style="background-color:#d0d0d0;padding-top: 10px;width:50em; padding-right: 0px; padding-bottom: 0.25in; padding-left: 2em;box-shadow: 5px 5px 5px 2px #888888">
+  <form method="get" id="form" action="">
     <div class="form-group">
       <h4 style="color:#095d58">Full Name</h4>
-     <input type="text"class="form-control" name="name" id="customer-name" style="width:50em">
+     <input type="text"class="form-control" name="name" id="customer-name" style="width:40em">
     </div>
     <div class="form-group">
       <h4 style="color:#095d58">Your FeedBack</h4>
-      <textarea type="text"  rows="6"  cols="50" class="form-control" name="feedback" id="feedback" style="width:50em "></textarea> 
+      <textarea type="text"  rows="6"  cols="50" class="form-control" name="feedback" id="feedback" style="width:40em "></textarea> 
     </div>
-    <button type="submit" class="btn btn-default">Submit</button>
+    <button name="submit" type="submit" class="btn btn-default">Submit</button>
   </form>
+  </div>
   <?php
-/*  if(!empty($_GET)){
-    $db = mysqli_connect("localhost", "root", "luvuma", "APOLLO");
-    if(!$db){
-      die("Error while connecting to database");
+  if(isset($_GET['submit']))
+  {
+    if(!empty($_GET['name']) and !empty($_GET['feedback']))
+    {
+      $name = $_GET['name'];
+      $feedback = $_GET['feedback'];
+      $db = mysqli_connect("localhost", "root", "123123", "APOLLO");
+     $query = "INSERT INTO FEEDBACK (customer_name,feedback_body) values ('$name','$feedback')";
+     $result = $db -> query($query);
+     echo "<h1>$result</h1>";
     }
-    $query = "INSERT INTO FEEDBACK values"
-    echo "<h1>success</h1>";
-  }*/
-  ?>
+    else
+    {
+      echo "Please enter valid data";
+    }
+    mysql_close($db);
+  }
+
+  ?>  
   </div>
 </div>
 </div>

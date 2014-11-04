@@ -25,15 +25,15 @@ if(!conn)
 }
 
 //quering the database and showing the results
-$query = "Select * from FEEDBACK f join CUSTOMER c on (f.customer_id=c.customer_id)";
+$query = "Select * from FEEDBACK";
 $results = mysql_query($query,$conn);
 if(!results)
 {
 	die('Could not enter data: ' . mysql_error());
 }
 ?>
-<table class='table table-hover'>
-<thead style="color:#0087C3;text-align:center">
+<table class='table table-hover' border="0" style="margin-left:2em;width:65em;border:1px solid ;box-shadow: 5px 3px 3px 2px #888888">
+<thead style="color:white;text-align:center;background-color:#808080;font-weight:bold;">
 <td>CUSTOMER</td>
 <td>TIME</td>
 <td>FEEDBACK</td>
@@ -42,7 +42,7 @@ if(!results)
 <?php
 while($row = mysql_fetch_array($results))
 {
-	echo "<tr style='text-align:center'><td>".$row['first_name']."</td>";
+	echo "<tr style='text-align:center'><td>".$row['customer_name']."</td>";
 	echo "<td>".$row['time_of_feedback']."</td>";
 	echo "<td>".$row['feedback_body']."</td></tr>";
 }

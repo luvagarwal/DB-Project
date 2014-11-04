@@ -89,8 +89,8 @@ CREATE TABLE PURCHASE(
 	total_items INT,
 	total_price INT,
 	discount INT,
-	FOREIGN KEY (customer_id) REFERENCES CUSTOMER(customer_id),
-	FOREIGN KEY (product_name) REFERENCES PRODUCT(product_name)
+	FOREIGN KEY (customer_id) REFERENCES CUSTOMER(customer_id)
+	#FOREIGN KEY (product_name) REFERENCES PRODUCT(product_name)
 );
 
 
@@ -106,11 +106,10 @@ CREATE TABLE DELIVERY(
 
 CREATE TABLE FEEDBACK(
 	feedback_id INT NOT NULL AUTO_INCREMENT,
-	customer_id INT,
+	customer_name CHAR(40),
 	time_of_feedback TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 	feedback_body CHAR(100),
-	PRIMARY KEY(feedback_id),
-	FOREIGN KEY (customer_id) REFERENCES CUSTOMER(customer_id)
+	PRIMARY KEY(feedback_id)
 );
 
 CREATE TABLE REFUND(
@@ -121,8 +120,9 @@ CREATE TABLE REFUND(
 	PRIMARY KEY (refund_id)
 );
 
-CREATE TABLE LOGIN(
-    username CHAR(20) NOT NULL,
-    password CHAR(32),
-    type CHAR(1)
-);
+
+INSERT INTO HOSPITAL (hospital_name,hospital_type,address) VALUES ('KALYAN Hospital','Dental','E-12l dajd adjakjd akjd');
+INSERT INTO DOCTOR (first_name, last_name,phone_no,address,hospital_id,sex,qualification) VALUES ('Aman','Pandey','12121212','W-121 djkjkjdksjdksdjsk,',1,'M','MBBS,MD');
+INSERT INTO CUSTOMER (first_name,last_name,address,sex,phone_no,doctor_id) VALUES ('Dhrumil','Patel','A-73 dmkajda ksjdak akjsdka k','M','94038020192','1');
+
+ 

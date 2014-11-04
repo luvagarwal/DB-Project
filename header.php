@@ -114,8 +114,8 @@
             </li>
         </ul>
         <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
-        <div class="collapse navbar-collapse navbar-ex1-collapse">
-            <ul class="nav navbar-nav side-nav">
+        <div class="collapse navbar-collapse navbar-ex1-collapse" style="height:100em;">
+            <ul class="nav navbar-nav side-nav" style="background-color:#">
                 <li class="active">
                     <a href="purchases.php"><i class="fa fa-fw"></i> Purchases</a>
                 </li>
@@ -148,6 +148,10 @@
                 <li>
                     <a href="doctors.php"><i class="fa fa-fw"></i> Doctors</a>
                 </li>
+                <li style="height:30em;">
+                   
+                </li>
+                
             </ul>
         </div>
         <!-- /.navbar-collapse -->
