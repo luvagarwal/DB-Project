@@ -34,11 +34,6 @@ $(".date-picker").on("change", function () {
   });
 </script>
 
-
-
-
-
-
 <button class="btn" id="toggle" style="margin-left:2em;margin-top:2em">Place A New order</button>
 <div id="form" style="width:50em;display:none;background-color:#f0f0f0;margin-left:20em;padding-top: 25px;padding-right: 25px ; padding-bottom: 25px;
     padding-left: 25px;">
@@ -46,16 +41,16 @@ $(".date-picker").on("change", function () {
 
     <div class="form-group">
       <h5 style="color:#095d58">Purchase Id:</h5>
-     <input type="text"class="form-control" name="purchase_id" id="purchase_id" style="width:30em">
+     <input type="text"class="form-control" name="purchase_id" id="purchase_id" style="width:30em" required>
     </div>
     <div class="form-group">
       <h5 style="color:#095d58">Customer Id:</h5>
-      <input type="text" class="form-control" name="customer_id" id="customer_id" style="width:30em ">
+      <input type="text" class="form-control" name="customer_id" id="customer_id" style="width:30em " required>
     </div>
    <div class="form-group">
 				<div class='input-group date' id='datetimepicker5'>
 					<h5 style="color:#095d58"> Date of Purchase: </h5>
-					<input type='text' class="form-control" data-date-format="YYYY/MM/DD" name="date" id="date"/>
+					<input type='text' class="form-control" data-date-format="YYYY/MM/DD" name="date" id="date" required>
 					<span class="input-group-addon">
 						<span class="glyphicon glyphicon-calendar"></span>
 					</span>
@@ -69,24 +64,24 @@ $(".date-picker").on("change", function () {
     </div>
     <div class="form-group">
       <h5 style="color:#095d58">Product Name:</h5>
-      <input type="text"  class="form-control" name="product_name" id="product_name" style="width:30em ">
+      <input type="text"  class="form-control" name="product_name" id="product_name" style="width:30em" required>
     </div>
 
     <div class="form-group">
       <h5 style="color:#095d58">Total Items:</h5>
-      <input type="text"  rows="6"  cols="50" class="form-control" name="total_items" id="total_items" style="width:30em "> 
+      <input type="text"  rows="6"  cols="50" class="form-control" name="total_items" id="total_items" style="width:30em" required> 
     </div>
 
 
     <div class="form-group">
       <h5 style="color:#095d58">Total Price:</h5>
-      <input type="text"  class="form-control" name="total_price" id="total_price" style="width:30em "> 
+      <input type="text"  class="form-control" name="total_price" id="total_price" style="width:30em" required> 
     </div>
 
  
     <div class="form-group">
       <h5 style="color:#095d58">Discount:</h5>
-      <input type="text"  class="form-control" name="discount" id="discount" style="width:30em "> 
+      <input type="text"  class="form-control" name="discount" id="discount" style="width:30em" required> 
     </div>
     
     <button type="submit" class="btn btn-default" name="submit">Submit</button>
