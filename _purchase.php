@@ -33,8 +33,28 @@ $(".date-picker").on("change", function () {
             jQuery( "#date" ).datepicker();
   });
 </script>
+<script>
+  function search(val){
+    obj = new XMLHttpRequest();
+    obj.onreadystatechange=function(){
+      if(obj.readyState==4 && obj.status==200){
+        resphtml = obj.responseText;
+        
+        document.getElementById("details").innerHTML=resphtml;
+      }
+    }
+    obj.open("GET", "searchpur.php?name="+val);
+    obj.send();
+  }
+</script>
 
-<button class="btn" id="toggle" style="margin-left:2em;margin-top:2em">Place A New order</button>
+<button class="btn" id="toggle" style="margin-left:70em;margin-top:2em">Place A New order</button>
+
+<div class="form-group">
+     <input type="text"class="form-control" onkeyup="search(this.value)" name="user_name" id="user_name" style="width:30em;margin-top:-2em;margin-left:2em;" placeholder="Search for a Employee....">
+</div>
+<button type="submit" class="btn btn-default" name="search" style="margin-left:33em;margin-top:-6.2em;box-shadow: 1px 1px 1px 1px #888888">Search</button>
+
 <div id="form" style="width:50em;display:none;background-color:#f0f0f0;margin-left:20em;padding-top: 25px;padding-right: 25px ; padding-bottom: 25px;
     padding-left: 25px;">
 <form method="post" action="" enctype="multipart/form-data">
@@ -112,46 +132,12 @@ if(isset($_POST['submit']))
 			echo "Problem entering the data";
 
 		}
+
 }
-$query = "Select * from PURCHASE p join CUSTOMER c on (p.customer_id=c.customer_id)";
-$results = mysql_query($query,$conn);
-if(!results)
-{
-	die('Could not enter data: ' . mysql_error());
-}
-?>
-<br>
-<br>
-
-<hr>
-<table class='table table-hover' border="0" style="margin-left:2em;width:77em;border:1px solid ;box-shadow: 5px 3px 3px 2px #888888">
-<thead style="color:white;text-align:center;background-color:#808080;font-weight:bold;">
-<td>Purchase Id</td>
-<td>Customer Name</td>
-<td>Date of Purchase</td>
-<td>Payment Method</td>
-<td>Product Name</td>
-<td>Total Items</td>
-<td>Total Price</td>
-<td>Discount</td>
-<td>Details</td>
-</thead>
-
-<?php
-
-while($row = mysql_fetch_array($results))
-{
-	echo "<tr style='text-align:center'><td>".$row['purchase_id']."</td>";
-	echo "<td>".$row['first_name'].$row['last_name']."</td>";
-	echo "<td>".$row['date_of_purchase']."</td>";
-	echo "<td>".$row['payment_method']."</td>";
-	echo "<td>".$row['product_name']."</td>";
-	echo "<td>".$row['total_items']."</td>";
-	echo "<td>".$row['total_price']."</td>";
-	echo "<td>".$row['discount']."</td>";
-  echo "<td><a href='showpurchase.php?id=".$row['purchase_id']."'>VIEW DETAILS</a></td></tr>";
-	}
-echo "</table>";
 mysql_close($conn);
-
 ?>
+
+
+<div id="details">
+<?php include "searchpur.php" ?>
+</div>

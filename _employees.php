@@ -35,8 +35,29 @@ $(".date-picker").on("change", function () {
                 </script>
 
 
-
+<script>
+	function search(val){
+		obj = new XMLHttpRequest();
+		obj.onreadystatechange=function(){
+			if(obj.readyState==4 && obj.status==200){
+				resphtml = obj.responseText;
+				
+				document.getElementById("details").innerHTML=resphtml;
+			}
+		}
+		obj.open("GET", "searchemp.php?name="+val);
+		obj.send();
+	}
+</script>
 <button class="btn" id="toggle" style="margin-left:71em;margin-top:1em;border: 0px solid;box-shadow: 5px 3px 3px 2px #888888">Add Employee</button>
+
+
+<div class="form-group">
+     <input type="text"class="form-control" onkeyup="search(this.value)" name="user_name" id="user_name" style="width:30em;margin-top:-2em;margin-left:2em;" placeholder="Search for a Employee....">
+</div>
+<button type="submit" class="btn btn-default" name="search" style="margin-left:33em;margin-top:-6.2em;box-shadow: 1px 1px 1px 1px #888888">Search</button>
+
+
 <div id="form" style="width:50em;display:none;background-color:#f0f0f0;margin-left:16em;padding-top: 25px;padding-right: 25px ; padding-bottom: 25px;
     padding-left: 25px;border: 0px solid;box-shadow: 5px 5px 5px 2px #888888">
 <form method="post" action="" enctype="multipart/form-data">
@@ -164,17 +185,10 @@ else
 		if(!$insert = mysql_query("INSERT INTO EMPLOYEE VALUES ('','$user_name','$first_name','$last_name','$image_name','$date','$sex','$date_joining','$address','$salary','$emp_type','$phone_no','$qualify','$password')"))
 		{
 			echo "Problem entering the data";
-
 		}
 	}
 }
-
-}
-$query = "Select * from EMPLOYEE";
-$results = mysql_query($query,$conn);
-if(!results)
-{
-	die('Could not enter data: ' . mysql_error());
+mysql_close($conn);
 }
 ?>
 <br>
@@ -182,7 +196,7 @@ if(!results)
 <hr>
 <h2 style="color:#095d58;text-align:center"> Employee's List</h2>
 <hr>
-<table class='table table-hover' border="0" style="margin-left:2em;width:77em;border:1px solid ;box-shadow: 5px 3px 3px 2px #888888">
+<table class='table table-hover' border="0" style="margin-left:2em;width:77em;border:1px solid ;box-shadow: 1px 1px 1px 1px #888888">
 <thead style="color:white;text-align:center;background-color:#808080;font-weight:bold;">
 <td>User Name</td>
 <td>First Name</td>
@@ -195,30 +209,8 @@ if(!results)
 <td>Employee Type</td>
 <td>Phone No</td>
 <td>Qualification</td>
-
-
 </thead>
-
-<?php
-
-while($row = mysql_fetch_array($results))
-{
-	echo "<tr style='text-align:center'><td>".$row['user_name']."</td>";
-	echo "<td>".$row['first_name']."</td>";
-	echo "<td>".$row['last_name']."</td>";
-	//echo "<td><img src='showimages.php?id=".$row['employee_id']."'></td>";
-	echo "<td>".$row['dob']."</td>";
-	echo "<td>".$row['sex']."</td>";
-	echo "<td>".$row['date_of_joining']."</td>";
-	echo "<td>".$row['address']."</td>";
-	echo "<td>".$row['salary']."</td>";
-	echo "<td>".$row['employee_type']."</td>";
-	echo "<td>".$row['phone_no']."</td>";
-	echo "<td>".$row['qualification']."</td></tr>";
-}
-echo "</table>";
-mysql_close($conn);
-
-?>
-
-
+</table>
+<div id="details">
+<?php include "searchemp.php" ?>
+</div>
