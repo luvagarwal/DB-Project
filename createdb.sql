@@ -50,8 +50,7 @@ CREATE TABLE STORE(
 );
 
 CREATE TABLE EMPLOYEE(
-	employee_id INT NOT NULL AUTO_INCREMENT, 
-	user_name CHAR(15),
+	user_name CHAR(15) NOT NULL,
 	first_name CHAR(15),
 	last_name CHAR(15),
 	image blob,
@@ -64,8 +63,9 @@ CREATE TABLE EMPLOYEE(
 	phone_no CHAR(12),
 	qualification CHAR(50),
 	password CHAR(32),
-	PRIMARY KEY(employee_id)
-#	FOREIGN KEY (store_id) REFERENCES STORE(store_id)
+	store_id INT,
+	PRIMARY KEY(user_name),
+	FOREIGN KEY (store_id) REFERENCES STORE(store_id)
 );
 
 CREATE TABLE PRODUCT(

@@ -135,11 +135,11 @@ $(".date-picker").on("change", function () {
     </div>
     <div class="form-group">
       <h5 style="color:#095d58">Password:</h5>
-      <input type="password"  name="password" id="password" required> 
+      <input type="password" class="form-control" name="password" id="password" style="width:30em " required> 
     </div>
     <div class="form-group">
       <h5 style="color:#095d58">Confirm Password:</h5>
-      <input type="password"  name="confirm_password" id="confirm_password" required> 
+      <input type="password" class="form-control" name="confirm_password" id="confirm_password" style="width:30em " required> 
     </div>
 
     <button type="submit" class="btn btn-default" name="submit">Submit</button>
@@ -182,7 +182,7 @@ else
 		echo "This is not an Image";
 	else
 	{
-		if(!$insert = mysql_query("INSERT INTO EMPLOYEE VALUES ('','$user_name','$first_name','$last_name','$image_name','$date','$sex','$date_joining','$address','$salary','$emp_type','$phone_no','$qualify','$password')"))
+		if(!$insert = mysql_query("INSERT INTO EMPLOYEE VALUES ('$user_name','$first_name','$last_name','$image_name','$date','$sex','$date_joining','$address','$salary','$emp_type','$phone_no','$qualify','$password')"))
 		{
 			echo "Problem entering the data";
 		}

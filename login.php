@@ -30,7 +30,6 @@
       function checkUserType(val){
           obj=new XMLHttpRequest();
           obj.onreadystatechange = function(){
-            alert(obj.readyState+obj.status);
             if(obj.readyState==4 && obj.status==200){
                 document.getElementById('stores').innerHTML=obj.responseText;
               }
