@@ -59,6 +59,24 @@ $(".date-picker").on("change", function () {
     obj.open("GET", "deleteemp.php?name="+val);
     obj.send();    
   }
+  function checkusername(val){
+    obj = new XMLHttpRequest();
+    obj.onreadystatechange=function(){
+      if(obj.readyState==4 && obj.status==200){
+        resphtml = obj.responseText;
+        if(resphtml==0){
+          document.getElementById("available").style='color: green;float:right; margin-right:14em; margin-top:-3em;';
+          document.getElementById("notavailable").style='display: none;';
+        }
+        else{
+          document.getElementById("available").style='display: none;';
+          document.getElementById("notavailable").style='color: red;  color: red;float:right; margin-right:14em; margin-top:-3em;';
+        }
+      }
+    }
+    obj.open("GET", "checkusername.php?name="+val);
+    obj.send();    
+  }
 </script>
 <button class="btn" id="toggle" style="margin-left:71em;margin-top:1em;border: 0px solid;box-shadow: 5px 3px 3px 2px #888888">Add Employee</button>
 
@@ -66,7 +84,10 @@ $(".date-picker").on("change", function () {
 <div class="form-group">
      <input type="text"class="form-control" onkeyup="search(this.value)" name="user_name" id="user_name" style="width:30em;margin-top:-2em;margin-left:2em;" placeholder="Search for a Employee....">
 </div>
-<button type="submit" class="btn btn-default" name="search" style="margin-left:33em;margin-top:-6.2em;box-shadow: 1px 1px 1px 1px #888888">Search</button>
+<button type="submit" class="btn btn-default" name="search" style="margin-left:33em;margin-top:-6.2em;box-shadow: 1px 1px 1px 1px #888888">
+  <span class="glyphicon glyphicon-search"></span>
+  Search
+</button>
 
 
 <div id="form" style="width:50em;display:none;background-color:#f0f0f0;margin-left:16em;padding-top: 25px;padding-right: 25px ; padding-bottom: 25px;
@@ -136,14 +157,16 @@ $(".date-picker").on("change", function () {
     <br>
 
     <div class="form-group">
-      <h4 style="color:blue">Login Credentials</h4>
+      <h4 style="color:grey">Login Credentials</h4>
     </div>
 
 
     <div class="form-group">
       <h5 style="color:#095d58">User Name:</h5>
-     <input type="text"class="form-control" name="user_name" id="user_name" style="width:30em" required>
+     <input type="text" class="form-control" onkeyup=checkusername(this.value) name="user_name" id="user_name" style="width:30em" required>
     </div>
+    <span id="available" style="display: none; color: green;"class="glyphicon glyphicon-ok"></span>
+    <span id="notavailable" style="display: none; color: red"class="glyphicon glyphicon-remove"></span>
     <div class="form-group">
       <h5 style="color:#095d58">Password:</h5>
       <input type="password" class="form-control" name="password" id="password" style="width:30em " required> 
