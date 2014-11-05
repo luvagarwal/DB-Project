@@ -1,5 +1,6 @@
 <table class='table table-hover' border="0" style="margin-left:2em;width:77em;border:1px solid ;box-shadow: 1px 1px 1px 1px #888888">
 <thead style="color:white;text-align:center;background-color:#808080;font-weight:bold;">
+<td>Photo</td>
 <td>User Name</td>
 <td>First Name</td>
 <td>Last Name</td>
@@ -20,19 +21,19 @@ mysql_select_db("APOLLO",$conn) or die(mysql_error());
 
 if(empty($_GET)){
 	$query = "Select * from EMPLOYEE";
-	$results = mysql_query($query,$conn);
+	$results = mysql_query($query);
+	
 	if(!$results)
 	{
 		die('Could not enter data: ' . mysql_error());
 	}
 	
-	
 	while($row = mysql_fetch_array($results))
 	{
-		echo "<tr style='text-align:center'><td>".$row['user_name']."</td>";
+		echo "<tr><td><img src='imageView.php?image_id=" .$row['employee_id']. "' style='width:100px;height:80px;'/></td>";
+		echo "<td>".$row['user_name']."</td>";
 		echo "<td>".$row['first_name']."</td>";
 		echo "<td>".$row['last_name']."</td>";
-		//echo "<td><img src='showimages.php?id=".$row['employee_id']."'></td>";
 		echo "<td>".$row['dob']."</td>";
 		echo "<td>".$row['sex']."</td>";
 		echo "<td>".$row['date_of_joining']."</td>";
@@ -51,11 +52,11 @@ else{
 	{
 		die('Could not enter data: ' . mysql_error());
 	}
-	
-	
+
 	while($row = mysql_fetch_array($results))
 	{
-		echo "<tr style='text-align:center'><td>".$row['user_name']."</td>";
+		echo "<tr><td><img src='imageView.php?image_id=" .$row['employee_id']. "'  style='width:100px;height:80px;'/></td>";
+		echo "<td>".$row['user_name']."</td>";
 		echo "<td>".$row['first_name']."</td>";
 		echo "<td>".$row['last_name']."</td>";
 		//echo "<td><img src='showimages.php?id=".$row['employee_id']."'></td>";

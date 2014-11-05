@@ -50,10 +50,12 @@ CREATE TABLE STORE(
 );
 
 CREATE TABLE EMPLOYEE(
+	employee_id INT NOT NULL AUTO_INCREMENT,
 	user_name CHAR(15) NOT NULL,
 	first_name CHAR(15),
 	last_name CHAR(15),
-	image blob,
+	imageType VARCHAR(25) DEFAULT '',
+	imageData mediumblob,
 	dob DATE,
 	sex CHAR(1),
 	date_of_joining DATE,
@@ -64,7 +66,7 @@ CREATE TABLE EMPLOYEE(
 	qualification CHAR(50),
 	password CHAR(32),
 	store_id INT,
-	PRIMARY KEY(user_name),
+	PRIMARY KEY(employee_id),
 	FOREIGN KEY (store_id) REFERENCES STORE(store_id)
 );
 
@@ -120,7 +122,7 @@ CREATE TABLE REFUND(
 	PRIMARY KEY (refund_id)
 );
 
-
+INSERT INTO STORE VALUES (1,'dsdsada da sd asd ad ','2013-12-12','121212121','12');
 INSERT INTO HOSPITAL (hospital_name,hospital_type,address) VALUES ('KALYAN Hospital','Dental','E-12l dajd adjakjd akjd');
 INSERT INTO DOCTOR (first_name, last_name,phone_no,address,hospital_id,sex,qualification) VALUES ('Aman','Pandey','12121212','W-121 djkjkjdksjdksdjsk,',1,'M','MBBS,MD');
 INSERT INTO CUSTOMER (first_name,last_name,address,sex,phone_no,doctor_id) VALUES ('Dhrumil','Patel','A-73 dmkajda ksjdak akjsdka k','M','94038020192','1');

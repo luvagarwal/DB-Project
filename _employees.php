@@ -1,5 +1,5 @@
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-
+<link href="imageStyles.css" rel="stylesheet" type="text/css" />
 
 <script>
 
@@ -175,14 +175,14 @@ if(!isset($file))
 }
 else
 {
-	$image = addslashes(file_get_contents($_FILES['image']['tmp_name']));
+	$imgData = addslashes(file_get_contents($_FILES['image']['tmp_name']));
 	$image_name = addslashes($_FILES['image']['name']);
-	$image_size = getimagesize($_FILES['image']['tmp_name']);
-	if($image_size == FALSE)
+	$imageProperties = getimagesize($_FILES['image']['tmp_name']);
+	if($imageProperties == FALSE)
 		echo "This is not an Image";
 	else
 	{
-		if(!$insert = mysql_query("INSERT INTO EMPLOYEE VALUES ('$user_name','$first_name','$last_name','$image_name','$date','$sex','$date_joining','$address','$salary','$emp_type','$phone_no','$qualify','$password')"))
+		if(!$insert = mysql_query("INSERT INTO EMPLOYEE VALUES ('','$user_name','$first_name','$last_name','{$imageProperties['mime']}','{$imgData}','$date','$sex','$date_joining','$address','$salary','$emp_type','$phone_no','$qualify','$password',1)"))
 		{
 			echo "Problem entering the data";
 		}
