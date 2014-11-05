@@ -59,8 +59,8 @@
           </button>
           <a class="navbar-brand" href="#">Apollo Pharmacy</a>
         </div>
-        <!--<?php
-        /*if(!empty($_POST)){
+        <?php
+        if(!empty($_POST)){
           $db = mysqli_connect('localhost', 'root', 'luvuma', 'APOLLO');
           $username = $_POST['username'];
           $password = md5($_POST['password']);
@@ -73,8 +73,8 @@
             $_SESSION['type'] = $type;
             header('Location: purchase.php');
           }
-        }*/
-        ?>-->
+        }
+        ?>
         <div id="navbar" class="navbar-collapse collapse"  style="opacity:0.9">
           <form class="navbar-form navbar-right" role="form" method="POST">
             <div class="form-group">

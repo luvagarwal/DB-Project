@@ -48,6 +48,16 @@ $(".date-picker").on("change", function () {
 		obj.open("GET", "searchemp.php?name="+val);
 		obj.send();
 	}
+  function deleteemp(val){
+    obj = new XMLHttpRequest();
+    obj.onreadystatechange=function(){
+      if(obj.readyState==4 && obj.status==200){
+        document.getElementById(val).style='display: none;';
+      }
+    }
+    obj.open("GET", "deleteemp?name="+val);
+    obj.send();    
+  }
 </script>
 <button class="btn" id="toggle" style="margin-left:71em;margin-top:1em;border: 0px solid;box-shadow: 5px 3px 3px 2px #888888">Add Employee</button>
 
