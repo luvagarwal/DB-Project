@@ -77,7 +77,8 @@ CREATE TABLE PRODUCT(
 	manufacture_date DATE,
 	expire_date DATE,
 	procurrent_cost INT,
-	image BLOB,
+	imageType VARCHAR(25) DEFAULT '',
+	imageData mediumblob,
 	PRIMARY KEY(product_name),
 	FOREIGN KEY (store_id) REFERENCES STORE(store_id)
 );
