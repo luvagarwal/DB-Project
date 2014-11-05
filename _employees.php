@@ -52,10 +52,11 @@ $(".date-picker").on("change", function () {
     obj = new XMLHttpRequest();
     obj.onreadystatechange=function(){
       if(obj.readyState==4 && obj.status==200){
+        alert(val);
         document.getElementById(val).style='display: none;';
       }
     }
-    obj.open("GET", "deleteemp?name="+val);
+    obj.open("GET", "deleteemp.php?name="+val);
     obj.send();    
   }
 </script>
