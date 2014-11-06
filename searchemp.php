@@ -59,8 +59,9 @@ else{
 
 	while($row = mysql_fetch_array($results))
 	{
-		echo "<div style='box-shadow: 1px 2px 2px 1px #888888;width:60em;background-color:#f0f0f0;margin-left:10em;height:20em;padding-right:20em;padding-top:2em'>";
-		echo "<img src='imageView.php?image_id=" .$row['employee_id']. "' style='width:15em;height:15em;float:left;margin-top:-0.5em'/>";
+		echo "<div id='".$row['user_name']."' style='box-shadow: 1px 2px 2px 1px #888888;width:60em;background-color:#f0f0f0;margin-left:10em;height:20em;padding-right:20em;padding-top:2em'>";
+		echo "<input type='submit' value='Delete' style='float:right;margin-right:-19em' onclick=deleteemp('".$row['user_name']."')>";
+		echo "<img src='imageView.php?image_id=" .$row['employee_id']. "' style='width:12em;height:15em;float:left;margin-top:-0.5em'/>";
 		echo "<ul style='margin-left:25em;float:right;margin-left:-70em; list-style-type: none'><li><b style='color:#0000ff'>User Name:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</b>".$row['user_name']."<li>";
 		echo "<li><b style='color:#0000ff'>First Name:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</b>".$row['first_name']."</li>";
 		echo "<li><b style='color:#0000ff'>Last Name:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</b>".$row['last_name']."</li>";
