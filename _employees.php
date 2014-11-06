@@ -51,11 +51,12 @@ $(".date-picker").on("change", function () {
   function deleteemp(val){
     obj = new XMLHttpRequest();
     obj.onreadystatechange=function(){
+      alert(val);
       if(obj.readyState==4 && obj.status==200){
         document.getElementById(val).style='display: none;';
       }
     }
-    obj.open("GET", "deleteemp?name="+val);
+    obj.open("GET", "deleteemp.php?name="+val);
     obj.send();    
   }
 </script>
