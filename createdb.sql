@@ -93,8 +93,8 @@ CREATE TABLE PURCHASE(
 	total_items INT,
 	total_price INT,
 	discount INT,
-	FOREIGN KEY (customer_id) REFERENCES CUSTOMER(customer_id)
-	#FOREIGN KEY (product_name) REFERENCES PRODUCT(product_name)
+	FOREIGN KEY (customer_id) REFERENCES CUSTOMER(customer_id),
+	FOREIGN KEY (product_name) REFERENCES PRODUCT(product_name)
 );
 
 
