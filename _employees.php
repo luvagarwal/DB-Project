@@ -51,9 +51,7 @@ $(".date-picker").on("change", function () {
   function deleteemp(val){
     obj = new XMLHttpRequest();
     obj.onreadystatechange=function(){
-      alert(val);
       if(obj.readyState==4 && obj.status==200){
-        alert(val);
         document.getElementById(val).style='display: none;';
       }
     }
