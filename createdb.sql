@@ -42,6 +42,7 @@ CREATE TABLE INDUSTRY(
 
 CREATE TABLE STORE(
 	store_id INT NOT NULL AUTO_INCREMENT,
+	store_name CHAR(30),
 	address CHAR(50),
 	established_on DATE,
 	contact_no CHAR(12),
@@ -123,7 +124,7 @@ CREATE TABLE REFUND(
 	PRIMARY KEY (refund_id)
 );
 
-INSERT INTO STORE VALUES (1,'dsdsada da sd asd ad ','2013-12-12','121212121','12');
+INSERT INTO STORE VALUES (1,'Apollo Gachibowli','dsdsada da sd asd ad ','2013-12-12','121212121','12');
 INSERT INTO HOSPITAL (hospital_name,hospital_type,address) VALUES ('KALYAN Hospital','Dental','E-12l dajd adjakjd akjd');
 INSERT INTO DOCTOR (first_name, last_name,phone_no,address,hospital_id,sex,qualification) VALUES ('Aman','Pandey','12121212','W-121 djkjkjdksjdksdjsk,',1,'M','MBBS,MD');
 INSERT INTO CUSTOMER (first_name,last_name,address,sex,phone_no,doctor_id) VALUES ('Dhrumil','Patel','A-73 dmkajda ksjdak akjsdka k','M','94038020192','1');
