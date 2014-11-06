@@ -34,6 +34,9 @@ $(".date-picker").on("change", function () {
                 });
                 </script>
 
+
+
+
 <script>
 	function search(val){
 		obj = new XMLHttpRequest();
@@ -47,6 +50,17 @@ $(".date-picker").on("change", function () {
 		obj.open("GET", "searchpro.php?name="+val);
 		obj.send();
 	}
+
+	function deletepro(val){
+    obj = new XMLHttpRequest();
+    obj.onreadystatechange=function(){
+      if(obj.readyState==4 && obj.status==200){
+        document.getElementById(val).style='display: none;';
+      }
+    }
+    obj.open("GET", "deletepro.php?name="+val);
+    obj.send();    
+  }
 </script>
 
 <?php
@@ -71,7 +85,7 @@ if(isset($_POST['submit']))
 	{	
 		$query = "INSERT INTO PRODUCT VALUES ('$product_name',1,$no_of_items,'$manufacture_date','$expire_date',$procurrent_cost,'{$imageProperties['mime']}','{$imgData}');";
 		if(!$insert = mysql_query($query))
-		{	echo "asasasa3";
+		{	
 			echo "Problem entering the data";
 		}
 	}
