@@ -183,6 +183,7 @@ $(".date-picker").on("change", function () {
 
 
 <?php
+session_start();
 $conn = mysql_connect("localhost","root","123123") or die(mysql_error());
 mysql_select_db("APOLLO",$conn) or die(mysql_error());
 
@@ -202,6 +203,8 @@ if(isset($_POST['submit']))
 	$qualify = $_POST['qualify'];
 	$file = $_FILES['image']['tmp_name'];
 	$password = md5($_POST['password']);
+  $store = $_SESSION['store'];
+
 if(!isset($file))
 {
 	echo "Please enter a file";
@@ -215,7 +218,7 @@ else
 		echo "This is not an Image";
 	else
 	{
-		if(!$insert = mysql_query("INSERT INTO EMPLOYEE VALUES ('','$user_name','$first_name','$last_name','{$imageProperties['mime']}','{$imgData}','$date','$sex','$date_joining','$address','$salary','$emp_type','$phone_no','$qualify','$password',1)"))
+		if(!$insert = mysql_query("INSERT INTO EMPLOYEE VALUES ('','$user_name','$first_name','$last_name','{$imageProperties['mime']}','{$imgData}','$date','$sex','$date_joining','$address','$salary','$emp_type','$phone_no','$qualify','$password',$store)"))
 		{
 			echo "Problem entering the data";
 		}

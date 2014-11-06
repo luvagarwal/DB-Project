@@ -1,3 +1,9 @@
+<?php
+session_start();
+if(isset($_SESSION['username'])){
+  header('Location: purchase.php');
+}
+?>
 <!DOCTYPE html>
 
 <html lang="en"><head>
@@ -31,7 +37,7 @@
           obj=new XMLHttpRequest();
           obj.onreadystatechange = function(){
             if(obj.readyState==4 && obj.status==200){
-                document.getElementById('stores').innerHTML=obj.responseText;
+                document.getElementById('store').innerHTML="<option>Select Store</option>"+obj.responseText;
               }
           }
           obj.open("GET", "_login.php?name="+val);
@@ -61,16 +67,18 @@
         </div>
         <?php
         if(!empty($_POST)){
-          $db = mysqli_connect('localhost', 'root', 'luvuma', 'APOLLO');
+          $db = mysqli_connect('localhost', 'root', '123123', 'APOLLO');
           $username = $_POST['username'];
           $password = md5($_POST['password']);
-          $query = "SELECT username, password, type from EMPLOYEE where username='$username' and password='$password';";
+          $store = $_POST['store'];
+          $query = "SELECT user_name, password, employee_type from EMPLOYEE where user_name='$username' and password='$password';";
           $result = $db -> query($query);
           if($result->num_rows > 0){
             session_start();
             $_SESSION['username'] = $username;
-            $type = $result->fetch_assoc()['type'];
+            $type = $result->fetch_assoc()['employee_type'];
             $_SESSION['type'] = $type;
+            $_SESSION['store'] = $store;
             header('Location: purchase.php');
           }
         }
@@ -78,22 +86,15 @@
         <div id="navbar" class="navbar-collapse collapse"  style="opacity:0.9">
           <form class="navbar-form navbar-right" role="form" method="POST">
             <div class="form-group">
-              <input placeholder="Email" name="username" class="form-control" type="text" onblur="checkUserType(this.value)" required>
+              <input placeholder="Username" name="username" class="form-control" type="text" onblur="checkUserType(this.value)" required>
             </div>
             <div class="form-group">
               <input placeholder="Password" name="password" class="form-control" type="password">
             </div>
-            <div class="dropdown form-group"> 
-            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
-              Store ID
-              <span class="caret"></span>
-            </button>
-              <ul class="dropdown-menu" id="stores" role="menu" aria-labelledby="dropdownMenu1">
-<!--                 <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Action</a></li>
-                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Another action</a></li>
-                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Something else here</a></li>
-                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li> -->
-              </ul>
+            <div class="form-group">
+              <select class="form-control" name="store" id="store">
+                <option>Select Store</option>
+              </select>
             </div>
             <button type="submit" class="btn btn-success">Sign in</button>
           </form>
