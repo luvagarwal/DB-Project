@@ -64,11 +64,11 @@
           $db = mysqli_connect('localhost', 'root', 'luvuma', 'APOLLO');
           $username = $_POST['username'];
           $password = md5($_POST['password']);
-          $query = "SELECT username, password, type from LOGIN where username='$username' and password='$password';";
+          $query = "SELECT username, password, type from EMPLOYEE where username='$username' and password='$password';";
           $result = $db -> query($query);
           if($result->num_rows > 0){
             session_start();
-            $_SESSION['username'] = username;
+            $_SESSION['username'] = $username;
             $type = $result->fetch_assoc()['type'];
             $_SESSION['type'] = $type;
             header('Location: purchase.php');
@@ -89,10 +89,10 @@
               <span class="caret"></span>
             </button>
               <ul class="dropdown-menu" id="stores" role="menu" aria-labelledby="dropdownMenu1">
-                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Action</a></li>
+<!--                 <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Action</a></li>
                 <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Another action</a></li>
                 <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Something else here</a></li>
-                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li> -->
               </ul>
             </div>
             <button type="submit" class="btn btn-success">Sign in</button>
