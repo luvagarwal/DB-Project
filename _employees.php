@@ -77,7 +77,11 @@ $(".date-picker").on("change", function () {
     obj.send();    
   }
 </script>
-<button class="btn" id="toggle" style="margin-left:71em;margin-top:1em;border: 0px solid;box-shadow: 5px 3px 3px 2px #888888">Add Employee</button>
+<?php
+session_start();
+if($_SESSION['type']!='e')
+  echo '<button class="btn" id="toggle" style="margin-left:71em;margin-top:1em;border: 0px solid;box-shadow: 5px 3px 3px 2px #888888">Add Employee</button>';
+?>
 
 
 <div class="form-group">
@@ -132,10 +136,15 @@ $(".date-picker").on("change", function () {
     </div>
 
    <div class="form-group">
-      <h5 style="color:#095d58">Sex:</h5>
-      <input type="radio" name="emp_type" value="m" checked> Manager<br>
-		<input type="radio" name="emp_type" value="a" > Admin<br>
+      <h5 style="color:#095d58">Employee Type:</h5>
 		<input type="radio" name="emp_type" value="e" >Employee<br>
+      <?php
+      session_start();
+      if($_SESSION['type']=='a'){
+        echo '<input type="radio" name="emp_type" value="m" > Manager<br>';
+        echo '<input type="radio" name="emp_type" value="a" > Admin<br>';
+      }
+      ?>
     </div>
 
     <div class="form-group">
