@@ -49,29 +49,34 @@ $(document).ready(function clickbutton(){
   </form>
 </div>
 
+
+<hr>
+<h2 style="color:#095d58;text-align:center">Recent Deliveries</h2>
+<hr>
+<table class='table table-hover' border="0" style="margin-top:2em;margin-left:2em;width:77em;border:1px solid ;box-shadow: 1px 1px 1px 1px #888888">
+<thead style="color:white;text-align:center;background-color:black;font-weight:bold;">
+<td>Industry Name</td>
+<td>Product Name</td>
+<td>Total Items</td>
+<td>Total Paid</td>
+<td>Time of Delivery</td>
+</thead>
+
 <?php
 $db = mysqli_connect('localhost', 'root', '123123', 'APOLLO');
 if(!$db)
 {
   die('Could not connect: ' . mysql_error());
 }
-$query = "select * from DELIVERY";
+$query = "select * from DELIVERY D JOIN INDUSTRY I ON (D.industry_id=I.industry_id)";
 $result = $db->query($query);
 while($row = $result->fetch_array()){
-    echo "<div style='box-shadow: 1px 2px 2px 1px #888888;
-          width:77em;background-color:#f0f0f0;margin-left:2em;height:32em;padding-right:
-          20em;padding-top:2em'>";
-    echo "<table class='table table-hover' style='width:40em;float:right;margin-left:70em;
-          margin-top:-17em; list-style-type: none'><tr><td colspan='2'><b style='color:
-          #0000ff'>Product Name:</b></td><td>".$row['product_name']."</td></tr>";
-    echo "<tr><td colspan='2'><b style='color:#0000ff'>No Items:&nbsp&nbsp&nbsp</b></td>
-          <td>".$row['total_items']."</td></tr>";
-    echo "<tr><td colspan='2'><b style='color:#0000ff'>Industry ID:&nbsp&nbsp&nbsp</b></td>
-          <td>".$row['industry_id']."</td></tr>";
-    echo "<tr><td colspan='2'><b style='color:#0000ff'>Total Price:&nbsp&nbsp&nbsp</b></td>
-          <td>".$row['total_paid']."</td></tr>";
-    echo "</table>";
-    echo "</div><br>";
+   echo "<tr style='text-align:center'><td>".$row['industry_name']."</td>";
+    echo "<td>".$row['product_name']."</td>";
+    echo "<td>".$row['total_items']."</td>";
+    echo "<td>".$row['total_paid']."</td>";
+    echo "<td>".$row['time_of_delivery']."</td></tr>";
+    
 }
-
+echo "</table>";
 ?>
