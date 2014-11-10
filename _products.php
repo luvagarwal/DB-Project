@@ -93,13 +93,13 @@ if(isset($_POST['submit']))
 mysql_close($conn);
 ?>
 
-<button class="btn" id="toggle" style="margin-left:71em;margin-top:1em;border: 0px solid;box-shadow: 5px 3px 3px 2px #888888">Add Product</button>
+<button class="btn" id="toggle" style="margin-left:71em;margin-top:1em;border: 0px solid;box-shadow: 5px 3px 3px 2px #888888"><span class="glyphicon glyphicon-plus"></span> Add Product</button>
 
 
 <div class="form-group">
-     <input type="text"class="form-control" onkeyup="search(this.value)" name="user_name" id="user_name" style="width:30em;margin-top:-2em;margin-left:2em;" placeholder="Search for a Employee....">
+     <input type="text"class="form-control" onkeyup="search(this.value)" name="user_name" id="user_name" style="width:30em;margin-top:-2em;margin-left:2em;" placeholder="Search for a Product....">
 </div>
-<button type="submit" class="btn btn-default" name="search" style="margin-left:33em;margin-top:-6.2em;box-shadow: 1px 1px 1px 1px #888888">Search</button>
+<button type="submit" class="btn btn-default" name="search" style="margin-left:33em;margin-top:-6.2em;box-shadow: 1px 1px 1px 1px #888888"> <span class="glyphicon glyphicon-search"></span> Search</button>
 
 
 <div id="form" style="width:50em;display:none;background-color:#f0f0f0;margin-left:16em;padding-top: 25px;padding-right: 25px ; padding-bottom: 25px;
@@ -117,21 +117,17 @@ mysql_close($conn);
    <div class="form-group">
 				<div class='input-group date' id='datetimepicker5'>
 					<h5 style="color:#095d58">Manufacturing Date: </h5>
-					<input type='text' class="form-control" data-date-format="YYYY/MM/DD" name="manufacture_date" >
-					<span class="input-group-addon">
-						<span class="glyphicon glyphicon-calendar"></span>
-					</span>
+					<input type='date' class="form-control" data-date-format="YYYY/MM/DD" name="manufacture_date" style="width:30em">
+					
 				</div>
 			</div>
     <div class="form-group">
 				<div class='input-group date' id='datetimepicker5'>
 					<h5 style="color:#095d58">Expire Date: </h5>
-					<input type='text' class="form-control" data-date-format="YYYY/MM/DD" name="expire_date" >
-					<span class="input-group-addon">
-						<span class="glyphicon glyphicon-calendar"></span>
-					</span>
+					<input type='date' class="form-control" data-date-format="YYYY/MM/DD" name="expire_date" style="width:30em ">
 				</div>
 			</div>
+
     <div class="form-group">
       <h5 style="color:#095d58">Procurrent Cost:</h5>
       <input type="text"  class="form-control" name="procurrent_cost" id="procurrent_cost" style="width:30em " >
@@ -149,11 +145,11 @@ mysql_close($conn);
 
 
 
-<br>
+
 <hr>
 <h2 style="color:#095d58;text-align:center">Products Available</h2>
 <hr>
-<br>
+
 	
 <div id="details">
 <?php include "searchpro.php" ?>

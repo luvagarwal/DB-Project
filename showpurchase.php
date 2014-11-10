@@ -38,6 +38,8 @@ while($row1 = mysql_fetch_array($results))
 <td>Discount</td>
 </thead>
 <?php
+$results = mysql_query($query);
+
 while($row = mysql_fetch_array($results))
 {
 	echo "<tr style='text-align:center'><td>".$row['product_name']."</td>";

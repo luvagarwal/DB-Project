@@ -1,6 +1,4 @@
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-
-
 <script>
 
 $(document).ready(function clickbutton(){
@@ -46,6 +44,17 @@ $(".date-picker").on("change", function () {
     obj.open("GET", "searchpur.php?name="+val);
     obj.send();
   }
+
+  function deletepur(val){
+    obj = new XMLHttpRequest();
+    obj.onreadystatechange=function(){
+      if(obj.readyState==4 && obj.status==200){
+        document.getElementById(val).style='display: none;';
+      }
+    }
+    obj.open("GET", "deletepur.php?id="+val);
+    obj.send();    
+  }
 </script>
 
 <button class="btn" id="toggle" style="margin-left:70em;margin-top:2em">Place A New order</button>
@@ -70,7 +79,7 @@ $(".date-picker").on("change", function () {
    <div class="form-group">
 				<div class='input-group date' id='datetimepicker5'>
 					<h5 style="color:#095d58"> Date of Purchase: </h5>
-					<input type='text' class="form-control" data-date-format="YYYY/MM/DD" name="date" id="date" required>
+					<input type="date" class="form-control" data-date-format="YYYY/MM/DD" name="date" id="date" required />
 					<span class="input-group-addon">
 						<span class="glyphicon glyphicon-calendar"></span>
 					</span>
@@ -109,8 +118,6 @@ $(".date-picker").on("change", function () {
 </div>
 
 
-
-
 <?php
 $conn = mysql_connect("localhost","root","123123") or die(mysql_error());
 mysql_select_db("APOLLO",$conn) or die(mysql_error());
@@ -132,11 +139,19 @@ if(isset($_POST['submit']))
 			echo "Problem entering the data";
 
 		}
+    else
+    {
+      $query = "SELECT no_of_items FROM PRODUCT where product_name='$product_name'";
+      $result = mysql_query($query);
+      $row = mysql_fetch_array($result);
+      $resultant_items = $row['no_of_items'] - $total_items;
+      $query = "UPDATE PRODUCT SET no_of_items=".$resultant_items." WHERE product_name='$product_name'";
+      mysql_query($query); 
+    }
 
 }
 mysql_close($conn);
 ?>
-
 
 <div id="details">
 <?php include "searchpur.php" ?>

@@ -12,14 +12,18 @@ if(empty($_GET)){
 	
 	while($row = mysql_fetch_array($results))
 	{
-		echo "<div id='".$row['product_name']."' style='box-shadow: 1px 2px 2px 1px #888888;width:60em;background-color:#f0f0f0;margin-left:10em;height:20em;padding-right:20em;padding-top:2em'>";
-		echo "<input type='submit' value='Delete' style='float:right;margin-right:-19em' onclick=deletepro('".$row['product_name']."')>";
-		echo "<img src='imagePro.php?product_name=" .$row['product_name']. "' style='width:15em;height:15em;float:left;margin-top:-0.5em'/>";
-		echo "<ul style='margin-left:25em;float:right;margin-left:-70em; list-style-type: none'><li><b style='color:#0000ff'>Product Name:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</b>".$row['product_name']."</li><br>";
-		echo "<li><b style='color:#0000ff'>No of Items:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</b>".$row['no_of_items']."</li><br>";
-		echo "<li><b style='color:#0000ff'>Manufacture Date:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</b>".$row['manufacture_date']."</li><br>";
-		echo "<li><b style='color:#0000ff'>Expire Date:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</b>".$row['expire_date']."</li><br>";
-		echo "<li><b style='color:#0000ff'>Procurrent Cost:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</b>".$row['procurrent_cost']."</li></ul></div><br>";
+			echo "<div id='".$row['product_name']."'  style='box-shadow: 1px 2px 2px 1px #888888;width:70em;background-color:#f0f0f0;margin-left:6em;height:18em;padding-right:20em;padding-top:2em'>";
+		
+		echo "<input type='submit' class='btn btn-default' value='Delete' style='float:right;margin-right:-19em' onclick=deletepro('".$row['product_name']."')>";
+		echo "<a href='editpro.php?product_name=".$row['product_name']."'><span class='glyphicon glyphicon-pencil' style='float:right;margin-right:-13em;margin-top:0.5em' >Edit</span></a>";
+
+		echo "<img src='imagePro.php?product_name=" .$row['product_name']. "' style='width:14em;height:15em;float:left;margin-top:-0.5em'/>";
+		echo "<table class='table table-hover' style='width:30em;float:right;margin-left:70em;margin-top:-16em; list-style-type: none'><tr><td colspan='2'><b style='color:#0000ff'>Product Name:</b></td><td>".$row['product_name']."</td></tr>";
+		echo "<tr><td colspan='2'><b style='color:#0000ff'>No. of Items:</b></td><td>".$row['no_of_items']."</td></tr>";
+		echo "<tr><td colspan='2'><b style='color:#0000ff'>Manufacture Date:</b></td><td>".$row['manufacture_date']."</td></tr>";
+		echo "<tr><td colspan='2'><b style='color:#0000ff'>Expire Date:</b></td><td>".$row['expire_date']."</td></tr>";
+		echo "<tr><td colspan='2'><b style='color:#0000ff'>Procurrent Cost:</b></td><td>".$row['procurrent_cost']."</td></tr></table>";
+		echo "</div><br>";
 	}
 }
 else{
@@ -32,15 +36,18 @@ else{
 	}
 
 	while($row = mysql_fetch_array($results))
-	{
-		echo "<div id='".$row['product_name']."' style='box-shadow: 1px 2px 2px 1px #888888;width:60em;background-color:#f0f0f0;margin-left:10em;height:20em;padding-right:20em;padding-top:2em'>";
-		echo "<input type='submit' value='Delete' style='float:right;margin-right:-19em' onclick=deletepro('".$row['product_name']."')>";
-		echo "<img src='imagePro.php?product_name=" .$row['product_name']. "' style='width:15em;height:15em;float:left;margin-top:-0.5em'/>";
-		echo "<ul style='margin-left:25em;float:right;margin-left:-70em; list-style-type: none'><li><b style='color:#0000ff'>Product Name:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</b>".$row['product_name']."</li><br>";
-		echo "<li><b style='color:#0000ff'>No of Items:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</b>".$row['no_of_items']."</li><br>";
-		echo "<li><b style='color:#0000ff'>Manufacture Date:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</b>".$row['manufacture_date']."</li><br>";
-		echo "<li><b style='color:#0000ff'>Expire Date:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</b>".$row['expire_date']."</li><br>";
-		echo "<li><b style='color:#0000ff'>Procurrent Cost:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</b>".$row['procurrent_cost']."</li></ul></div><br>";
+	{		echo "<div id='".$row['product_name']."'  style='box-shadow: 1px 2px 2px 1px #888888;width:70em;background-color:#f0f0f0;margin-left:6em;height:18em;padding-right:20em;padding-top:2em'>";
+		
+		echo "<input type='submit' class='btn btn-default' value='Delete' style='float:right;margin-right:-19em' onclick=deletepro('".$row['product_name']."')>";
+		echo "<a href='editpro.php?product_name=".$row['product_name']."'><span class='glyphicon glyphicon-pencil' style='float:right;margin-right:-13em;margin-top:0.5em' >Edit</span></a>";
+
+		echo "<img src='imagePro.php?product_name=" .$row['product_name']. "' style='width:14em;height:15em;float:left;margin-top:-0.5em'/>";
+		echo "<table class='table table-hover' style='width:30em;float:right;margin-left:70em;margin-top:-16em; list-style-type: none'><tr><td colspan='2'><b style='color:#0000ff'>Product Name:</b></td><td>".$row['product_name']."</td></tr>";
+		echo "<tr><td colspan='2'><b style='color:#0000ff'>No. of Items:</b></td><td>".$row['no_of_items']."</td></tr>";
+		echo "<tr><td colspan='2'><b style='color:#0000ff'>Manufacture Date:</b></td><td>".$row['manufacture_date']."</td></tr>";
+		echo "<tr><td colspan='2'><b style='color:#0000ff'>Expire Date:</b></td><td>".$row['expire_date']."</td></tr>";
+		echo "<tr><td colspan='2'><b style='color:#0000ff'>Procurrent Cost:</b></td><td>".$row['procurrent_cost']."</td></tr></table>";
+		echo "</div><br>";
 
 	
 }

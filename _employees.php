@@ -76,13 +76,30 @@ $(".date-picker").on("change", function () {
     obj.open("GET", "checkusername.php?name="+val);
     obj.send();    
   }
+
+  function conformpass()
+  {
+    pass = document.getElementById("password").value;
+    conform_pass = document.getElementById('confirm_password').value;
+    if(pass==conform_pass)
+    {
+      document.getElementById('validate_pass').innerHTML = "Passwords match";
+      document.getElementById('not_validate_pass').innerHTML = "";
+
+    } 
+    else
+    {
+      document.getElementById('not_validate_pass').innerHTML = "Passwords do not match";
+      document.getElementById('validate_pass').innerHTML = "";
+
+    }
+  }
 </script>
 <?php
 session_start();
 if($_SESSION['type']!='e')
   echo '<button class="btn" id="toggle" style="margin-left:71em;margin-top:1em;border: 0px solid;box-shadow: 5px 3px 3px 2px #888888">Add Employee</button>';
 ?>
-
 
 <div class="form-group">
      <input type="text"class="form-control" onkeyup="search(this.value)" name="user_name" id="user_name" style="width:30em;margin-top:-2em;margin-left:2em;" placeholder="Search for a Employee....">
@@ -108,10 +125,8 @@ if($_SESSION['type']!='e')
    <div class="form-group">
 				<div class='input-group date' id='datetimepicker5'>
 					<h5 style="color:#095d58"> Date of Birth: </h5>
-					<input type='text' class="form-control" data-date-format="YYYY/MM/DD" name="date" required>
-					<span class="input-group-addon">
-						<span class="glyphicon glyphicon-calendar"></span>
-					</span>
+					<input type='date' class="form-control" data-date-format="YYYY/MM/DD" name="date" style="width:30em" required>
+					
 				</div>
 			</div>
     <div class="form-group">
@@ -137,7 +152,6 @@ if($_SESSION['type']!='e')
 
    <div class="form-group">
       <h5 style="color:#095d58">Employee Type:</h5>
-		<input type="radio" name="emp_type" value="e" >Employee<br>
       <?php
       session_start();
       if($_SESSION['type']=='a'){
@@ -145,6 +159,7 @@ if($_SESSION['type']!='e')
         echo '<input type="radio" name="emp_type" value="a" > Admin<br>';
       }
       ?>
+		  <input type="radio" name="emp_type" value="e" >Employee<br>
     </div>
 
     <div class="form-group">
@@ -165,7 +180,7 @@ if($_SESSION['type']!='e')
     <br>
 
     <div class="form-group">
-      <h4 style="color:grey">Login Credentials</h4>
+      <h4 style="color:orange">Login Credentials</h4>
     </div>
 
 
@@ -181,8 +196,11 @@ if($_SESSION['type']!='e')
     </div>
     <div class="form-group">
       <h5 style="color:#095d58">Confirm Password:</h5>
-      <input type="password" class="form-control" name="confirm_password" id="confirm_password" style="width:30em " required> 
+      <input type="password" class="form-control" name="confirm_password" id="confirm_password" style="width:30em " required onkeyup="conformpass()"> 
     </div>
+    <div id="validate_pass" style="float:right;margin-top:-3em;margin-right:6em;color:green"></div>
+    <div id="not_validate_pass" style="float:right;margin-top:-3em;margin-right:4em;color:red"></div>
+
 
     <button type="submit" class="btn btn-default" name="submit">Submit</button>
   </form>
