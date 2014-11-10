@@ -16,11 +16,13 @@
 
 
 <?php
+session_start();
 $conn = mysql_connect("localhost","root","123123") or die(mysql_error());
 mysql_select_db("APOLLO",$conn) or die(mysql_error());
 
 if(empty($_GET)){
-	$query = "Select * from EMPLOYEE";
+	$store = $_SESSION['store'];
+	$query = "Select * from EMPLOYEE where store_id=$store";
 	$results = mysql_query($query);
 	
 	if(!$results)
@@ -54,7 +56,7 @@ if(empty($_GET)){
 }
 else{
 	$name = $_GET['name'];
-	$query = "select * from EMPLOYEE where user_name LIKE '%$name%' or first_name LIKE '%$name%' or last_name LIKE '%$name%';";
+	$query = "select * from EMPLOYEE where user_name LIKE '%$name%' or first_name LIKE '%$name%' or last_name LIKE '%$name%' and store_id=$store;";
 	$results = mysql_query($query,$conn);
 	if(!$results)
 	{
