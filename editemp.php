@@ -48,20 +48,24 @@
 							echo "This is not an Image";
 						else
 						{
-							if(!$insert = mysql_query("UPDATE EMPLOYEE SET user_name=$user_name',first_name='$first_name',last_name='$last_name',imageType='{$imageProperties['mime']}',imageData='{$imgData}',dob='$date',sex='$sex',date_of_joining='$date_joining',address='$address',salary='$salary',employee_type='$emp_type',phone_no='$phone_no',qualification = '$qualify',password='$password',store_id=1 where employee_id=".$_GET['employee_id']))
+							if(!$insert = mysql_query("UPDATE EMPLOYEE SET user_name='$user_name',first_name='$first_name',last_name='$last_name',imageType='{$imageProperties['mime']}',imageData='{$imgData}',dob='$date',sex='$sex',date_of_joining='$date_joining',address='$address',salary='$salary',employee_type='$emp_type',phone_no='$phone_no',qualification = '$qualify',password='$password',store_id=1 where employee_id=".$_GET['employee_id']))
 							{
 								echo "Problem entering the data";
 							}
 						}
+						echo "<meta http-equiv='refresh' content='0;url=employees.php'>";
 					}
-mysql_close($conn);
+
 			}
 			
-
+mysql_close($conn);
 
 		?>
-	  <br>
-      <br>
+		<br>
+		<br>
+	  <a href="employees.php"><span class="glyphicon glyphicon-chevron-left" style="margin-left:2em"><b>Back</b></span> </a>
+     <h2 style="color:#095d58;text-align:center;margin-top:-1em">Edit Profile</h2>
+
       <br>
 <div id="form" style="width:50em;background-color:#f0f0f0;margin-left:16em;padding-top: 25px;padding-right: 25px ; padding-bottom: 25px;
     padding-left: 25px;border: 0px solid;box-shadow: 5px 5px 5px 2px #888888">
@@ -149,7 +153,7 @@ mysql_close($conn);
       <input type="password" class="form-control" name="confirm_password" id="confirm_password" style="width:30em " required> 
     </div>
 
-    <button type="submit" class="btn btn-default" name="submit">Submit</button>
+    <button type="submit" class="btn btn-default" name="submit">Save Changes</button>
   </form>
 </div>
 
