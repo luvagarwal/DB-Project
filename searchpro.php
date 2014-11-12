@@ -14,8 +14,7 @@ if(empty($_GET)){
 	{
 			echo "<div id='".$row['product_name']."'  style='box-shadow: 1px 2px 2px 1px #888888;width:70em;background-color:#f0f0f0;margin-left:6em;height:18em;padding-right:20em;padding-top:2em'>";
 		
-		echo "<input type='submit' class='btn btn-default' value='Delete' style='float:right;margin-right:-19em' onclick=deletepro('".$row['product_name']."')>";
-		echo "<a href='editpro.php?product_name=".$row['product_name']."'><span class='glyphicon glyphicon-pencil' style='float:right;margin-right:-13em;margin-top:0.5em' >Edit</span></a>";
+		echo "<a href='editpro.php?product_name=".$row['product_name']."'><span class='glyphicon glyphicon-pencil' style='float:right;margin-right:-18em' >Edit</span></a>";
 
 		echo "<img src='imagePro.php?product_name=" .$row['product_name']. "' style='width:14em;height:15em;float:left;margin-top:-0.5em'/>";
 		echo "<table class='table table-hover' style='width:30em;float:right;margin-left:70em;margin-top:-16em; list-style-type: none'><tr><td colspan='2'><b style='color:#0000ff'>Product Name:</b></td><td>".$row['product_name']."</td></tr>";
@@ -38,8 +37,7 @@ else{
 	while($row = mysql_fetch_array($results))
 	{		echo "<div id='".$row['product_name']."'  style='box-shadow: 1px 2px 2px 1px #888888;width:70em;background-color:#f0f0f0;margin-left:6em;height:18em;padding-right:20em;padding-top:2em'>";
 		
-		echo "<input type='submit' class='btn btn-default' value='Delete' style='float:right;margin-right:-19em' onclick=deletepro('".$row['product_name']."')>";
-		echo "<a href='editpro.php?product_name=".$row['product_name']."'><span class='glyphicon glyphicon-pencil' style='float:right;margin-right:-13em;margin-top:0.5em' >Edit</span></a>";
+		echo "<a href='editpro.php?product_name=".$row['product_name']."'><span class='glyphicon glyphicon-pencil' style='float:right;margin-right:-18em'>Edit</span></a>";
 
 		echo "<img src='imagePro.php?product_name=" .$row['product_name']. "' style='width:14em;height:15em;float:left;margin-top:-0.5em'/>";
 		echo "<table class='table table-hover' style='width:30em;float:right;margin-left:70em;margin-top:-16em; list-style-type: none'><tr><td colspan='2'><b style='color:#0000ff'>Product Name:</b></td><td>".$row['product_name']."</td></tr>";

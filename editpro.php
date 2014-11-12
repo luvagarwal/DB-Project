@@ -70,18 +70,12 @@
         <div class='input-group date' id='datetimepicker5'>
           <h5 style="color:#095d58">Manufacturing Date: </h5>
           <input type='text' class="form-control" data-date-format="YYYY/MM/DD" name="manufacture_date" required value="<?php echo $row['manufacture_date']; ?>">
-          <span class="input-group-addon">
-            <span class="glyphicon glyphicon-calendar"></span>
-          </span>
         </div>
       </div>
     <div class="form-group">
         <div class='input-group date' id='datetimepicker5'>
           <h5 style="color:#095d58">Expire Date: </h5>
           <input type='text' class="form-control" data-date-format="YYYY/MM/DD" name="expire_date" required value="<?php echo $row['expire_date']; ?>">
-          <span class="input-group-addon">
-            <span class="glyphicon glyphicon-calendar"></span>
-          </span>
         </div>
       </div>
     <div class="form-group">

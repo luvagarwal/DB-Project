@@ -71,6 +71,7 @@ if(isset($_SESSION['username'])){
           $username = $_POST['username'];
           $password = md5($_POST['password']);
           $store = $_POST['store'];
+          $store_name = $store;
           $query = "SELECT store_id from STORE where store_name='".$store."'";
           $result = $db -> query($query);
           $row = $result -> fetch_array();
@@ -83,6 +84,7 @@ if(isset($_SESSION['username'])){
             $type = $result->fetch_assoc()['employee_type'];
             $_SESSION['type'] = $type;
             $_SESSION['store'] = $store;
+            $_SESSION['store_name'] = $store_name;
             header('Location: purchase.php');
           }
         }

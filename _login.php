@@ -9,7 +9,7 @@ if($result->num_rows > 0){
         $query = "SELECT store_name from STORE";
         $result = $db -> query($query);
         while($row=$result->fetch_array()){
-            echo "<option value=".$row['store_name'].">".$row['store_name']."</option>";
+            echo "<option value='".$row['store_name']."''>".$row['store_name']."</option>";
         }
     }
     else{
