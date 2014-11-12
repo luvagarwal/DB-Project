@@ -1,37 +1,11 @@
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="static/js/jquery-1.11.0.js"></script>
 <script>
-
 $(document).ready(function clickbutton(){
   $("button#toggle").click(function(){
     $('#form').toggle(1000);
   });
 });
 
-$(function () {
-	$('#datetimepicker5').datepicker({
-			pickTime: false
-			});
-		});
-
-
-$(".date-picker").datepicker();
-
-$(".date-picker").on("change", function () {
-    var id = $(this).attr("id");
-    var val = $("label[for='" + id + "']").text();
-    $("#msg").text(val + " changed");
-});
-
-</script>
-<script src="jquery-1.6.2.min.js"></script>
-<script src="jquery-ui-1.8.15.custom.min.js"></script>
-<link rel="stylesheet" href="jquery/jqueryCalendar.css">
-<script>
-        jQuery(function(
-            jQuery( "#date" ).datepicker();
-  });
-</script>
-<script>
   function search(val){
     obj = new XMLHttpRequest();
     obj.onreadystatechange=function(){
@@ -60,7 +34,7 @@ $(".date-picker").on("change", function () {
 <button class="btn" id="toggle" style="margin-left:70em;margin-top:2em">Place A New order</button>
 
 <div class="form-group">
-     <input type="text"class="form-control" onkeyup="search(this.value)" name="user_name" id="user_name" style="width:30em;margin-top:-2em;margin-left:2em;" placeholder="Search for a Employee....">
+     <input type="text"class="form-control" onkeyup="search(this.value)" name="user_name" id="user_name" style="width:30em;margin-top:-2em;margin-left:2em;" placeholder="Search for a Purchase....">
 </div>
 <button type="submit" class="btn btn-default" name="search" style="margin-left:33em;margin-top:-6.2em;box-shadow: 1px 1px 1px 1px #888888">Search</button>
 
@@ -71,6 +45,13 @@ $(".date-picker").on("change", function () {
     <div class="form-group">
       <h5 style="color:#095d58">Purchase Id:</h5>
      <input type="text"class="form-control" name="purchase_id" id="purchase_id" style="width:30em" required>
+     <?php
+        $db = mysqli_connect('localhost', 'root', '123123', 'APOLLO');
+        $query = "SELECT purchase_id FROM PURCHASE ORDER BY purchase_id DESC LIMIT 1;";
+        $result = $db->query($query);
+        $row = $result->fetch_array();
+        echo "<p style='color: green;'>Last Purchase ID: ".$row['purchase_id']."</p>";
+     ?>
     </div>
     <div class="form-group">
       <h5 style="color:#095d58">Customer Id:</h5>
@@ -80,9 +61,6 @@ $(".date-picker").on("change", function () {
 				<div class='input-group date' id='datetimepicker5'>
 					<h5 style="color:#095d58"> Date of Purchase: </h5>
 					<input type="date" class="form-control" data-date-format="YYYY/MM/DD" name="date" id="date" required />
-					<span class="input-group-addon">
-						<span class="glyphicon glyphicon-calendar"></span>
-					</span>
 				</div>
 			</div>
     <div class="form-group">
