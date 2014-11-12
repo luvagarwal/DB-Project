@@ -1,20 +1,3 @@
-<!--<table class='table table-hover' border="0" style="margin-left:2em;width:77em;border:1px solid ;box-shadow: 1px 1px 1px 1px #888888">
-<thead style="color:white;text-align:center;background-color:#808080;font-weight:bold;">
-<td>Photo</td>
-<td>User Name</td>
-<td>First Name</td>
-<td>Last Name</td>
-<td>Date</td>
-<td>Sex</td>
-<td>Date of Joining</td>
-<td>Address</td>
-<td>Salary</td>
-<td>Employee Type</td>
-<td>Phone No</td>
-<td>Qualification</td>
-</thead>-->
-
-
 <?php
 session_start();
 $conn = mysql_connect("localhost","root","123123") or die(mysql_error());
@@ -22,7 +5,7 @@ mysql_select_db("APOLLO",$conn) or die(mysql_error());
 
 if(empty($_GET)){
 	$store = $_SESSION['store'];
-	$query = "Select * from EMPLOYEE where store_id=$store";
+	$query = "Select * from EMPLOYEE where store_id='$store'";
 	$results = mysql_query($query);
 	
 	if(!$results)

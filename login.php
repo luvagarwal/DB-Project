@@ -71,6 +71,10 @@ if(isset($_SESSION['username'])){
           $username = $_POST['username'];
           $password = md5($_POST['password']);
           $store = $_POST['store'];
+          $query = "SELECT store_id from STORE where store_name='".$store."'";
+          $result = $db -> query($query);
+          $row = $result -> fetch_array();
+          $store = $row['store_id'];
           $query = "SELECT user_name, password, employee_type from EMPLOYEE where user_name='$username' and password='$password';";
           $result = $db -> query($query);
           if($result->num_rows > 0){

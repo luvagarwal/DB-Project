@@ -69,15 +69,7 @@
                     <a href="customers.php"><i class="fa fa-fw"></i> Customers</a>
                 </li>
                 <li>
-                    <a href="" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw"></i> Dropdown <i class="fa fa-fw fa-caret-down"></i></a>
-                    <ul id="demo" class="collapse">
-                        <li>
-                            <a href="#">Dropdown Item</a>
-                        </li>
-                        <li>
-                            <a href="#">Dropdown Item</a>
-                        </li>
-                    </ul>
+                    <a href="store.php"><i class="fa fa-fw"></i> Stores</a>
                 </li>
                 <li>
                     <a href="doctors.php"><i class="fa fa-fw"></i> Doctors</a>

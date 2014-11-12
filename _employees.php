@@ -102,7 +102,7 @@ if($_SESSION['type']!='e')
 ?>
 
 <div class="form-group">
-     <input type="text"class="form-control" onkeyup="search(this.value)" name="user_name" id="user_name" style="width:30em;margin-top:-2em;margin-left:2em;" placeholder="Search for a Employee....">
+     <input type="text"class="form-control" onkeyup="search(this.value)" name="user_name" id="user_name" style="width:30em;margin-top:2em;margin-left:2em;" placeholder="Search for a Employee....">
 </div>
 <button type="submit" class="btn btn-default" name="search" style="margin-left:33em;margin-top:-6.2em;box-shadow: 1px 1px 1px 1px #888888">
   <span class="glyphicon glyphicon-search"></span>

@@ -6,10 +6,10 @@ $result = $db -> query($query);
 if($result->num_rows > 0){
     $result = $result -> fetch_array();
     if($result[0]=='a'){
-        $query = "SELECT store_id from STORE";
+        $query = "SELECT store_name from STORE";
         $result = $db -> query($query);
         while($row=$result->fetch_array()){
-            echo "<option value=".$row['store_id'].">".$row['store_id']."</option>";
+            echo "<option value=".$row['store_name'].">".$row['store_name']."</option>";
         }
     }
     else{
@@ -17,7 +17,10 @@ if($result->num_rows > 0){
         $result = $db -> query($query);
         if($result->num_rows > 0){
             $row = $result -> fetch_array();
-            echo "<option value=".$row['store_id'].">".$row['store_id']."</option>";
+            $query = "SELECT store_name from STORE where store_id=".$row['store_id'];
+            $result = $db -> query($query);
+            $row = $result -> fetch_array();
+            echo "<option value=".$row['store_name'].">".$row['store_name']."</option>";
         }
     }
 }
