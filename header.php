@@ -10,7 +10,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="index.html"><?php session_start(); echo "STORE ".$_SESSION['store'];?></a>
+            <a class="navbar-brand" href="#"><?php session_start(); echo "STORE: ".$_SESSION['store_name']?></a>
         </div>
         <!-- Top Menu Items -->
         <ul class="nav navbar-right top-nav">
